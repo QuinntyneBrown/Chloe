@@ -21,6 +21,9 @@ namespace Data
         public DbSet<Provider> Providers { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Bundle> Bundles { get; set; }
+        public DbSet<Component> Components { get; set; }
+        public DbSet<Page> Pages { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Provider>().

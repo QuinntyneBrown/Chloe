@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3F8AD5FF-F1A3-403C-B33C-84DEF9EA2668}"
 EndProject
@@ -13,9 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{EAF3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{6E5DCAE4-8D91-4985-89D7-9BC1406F48C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicWebsite", "Website\PublicWebsite.csproj", "{50333641-91D9-48F1-A041-68D3F2F8BF1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrandWebsite1", "BrandWebsite1\BrandWebsite1.csproj", "{50333641-91D9-48F1-A041-68D3F2F8BF1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminWebsite", "AdminWebsite\AdminWebsite.csproj", "{7A73437C-C291-4230-80E8-2205AC543044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrandWebsite2", "BrandWebsite2\BrandWebsite2.csproj", "{A4B21401-4FD9-4DC5-B072-68E9B1317BA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{7A73437C-C291-4230-80E8-2205AC543044}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A73437C-C291-4230-80E8-2205AC543044}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A73437C-C291-4230-80E8-2205AC543044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B21401-4FD9-4DC5-B072-68E9B1317BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B21401-4FD9-4DC5-B072-68E9B1317BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B21401-4FD9-4DC5-B072-68E9B1317BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B21401-4FD9-4DC5-B072-68E9B1317BA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
