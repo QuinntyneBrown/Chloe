@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class SubscribeToProviderContext: DbContext, IDbContext
+    public class ModernCmsContext: DbContext, IDbContext
     {
-        public SubscribeToProviderContext()
-            : base(nameOrConnectionString: "subscribeToProviderContext")
+        public ModernCmsContext()
+            : base(nameOrConnectionString: "ModernCmsContext")
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;

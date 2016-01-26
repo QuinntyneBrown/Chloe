@@ -5,11 +5,11 @@ namespace Api.Controllers
 {
     public class PageController : ApiController
     {
-        public PageController(ISubscribeToProviderUow uow)
+        public PageController(IModernCmsUow uow)
         {
             this.uow = uow;
         }
 
-        protected readonly ISubscribeToProviderUow uow;
+        protected readonly IModernCmsUow uow;
     }
 }

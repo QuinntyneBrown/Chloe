@@ -9,8 +9,8 @@ namespace Api
         public static IUnityContainer GetContainer(bool useMock = false)
         {
             var container = new UnityContainer();
-            container.RegisterType<ISubscribeToProviderUow, SubscribeToProviderUow>();
-            container.RegisterType<IDbContext, SubscribeToProviderContext>();
+            container.RegisterType<IModernCmsUow, ModernCmsUow>();
+            container.RegisterType<IDbContext, ModernCmsContext>();
             container.RegisterType<IRepositoryProvider, RepositoryProvider>();
             return container;
         }

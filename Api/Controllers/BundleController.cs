@@ -10,11 +10,11 @@ namespace Api.Controllers
 {
     public class BundleController : ApiController
     {
-        public BundleController(ISubscribeToProviderUow uow)
+        public BundleController(IModernCmsUow uow)
         {
             this.uow = uow;
         }
 
-        protected readonly ISubscribeToProviderUow uow;
+        protected readonly IModernCmsUow uow;
     }
 }

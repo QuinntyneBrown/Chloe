@@ -5,14 +5,14 @@ namespace Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.SubscribeToProviderContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Data.ModernCmsContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Data.SubscribeToProviderContext context)
+        protected override void Seed(Data.ModernCmsContext context)
         {
 
         }

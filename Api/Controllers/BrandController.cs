@@ -11,7 +11,7 @@ namespace Api.Controllers
     [RoutePrefix("api/brand")]
     public class BrandController : ApiController
     {        
-        public BrandController(ISubscribeToProviderUow uow)
+        public BrandController(IModernCmsUow uow)
         {
             this.uow = uow;
         }
@@ -22,6 +22,6 @@ namespace Api.Controllers
             return "test";
         }
 
-        protected readonly ISubscribeToProviderUow uow;
+        protected readonly IModernCmsUow uow;
     }
 }

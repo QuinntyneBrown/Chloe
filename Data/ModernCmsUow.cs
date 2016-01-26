@@ -3,13 +3,13 @@ using System;
 
 namespace Data
 {
-    public class SubscribeToProviderUow : ISubscribeToProviderUow
+    public class ModernCmsUow : IModernCmsUow
     {
         protected IDbContext dbContext;
 
         protected IRepositoryProvider RepositoryProvider { get; set; }
 
-        public SubscribeToProviderUow(IDbContext dbContext = null)
+        public ModernCmsUow(IDbContext dbContext = null)
         {
             this.dbContext = dbContext;
 
@@ -22,7 +22,7 @@ namespace Data
             RepositoryProvider = repositoryProvider;
         }
 
-        public SubscribeToProviderUow(IRepositoryProvider repositoryProvider, IDbContext dbContext = null)
+        public ModernCmsUow(IRepositoryProvider repositoryProvider, IDbContext dbContext = null)
         {
             this.dbContext = dbContext;
 

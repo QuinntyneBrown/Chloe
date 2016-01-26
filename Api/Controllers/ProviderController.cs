@@ -8,11 +8,11 @@ namespace Api.Controllers
 {
     public class ProviderController
     {
-        public ProviderController(ISubscribeToProviderUow uow)
+        public ProviderController(IModernCmsUow uow)
         {
             this.uow = uow;
         }
 
-        protected readonly ISubscribeToProviderUow uow;
+        protected readonly IModernCmsUow uow;
     }
 }
