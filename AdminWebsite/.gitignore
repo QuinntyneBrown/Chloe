@@ -10,6 +10,8 @@
 app/**/*.js
 app/**/*.js.map
 
+dist/app.js
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

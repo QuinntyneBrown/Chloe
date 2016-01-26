@@ -8,5 +8,5 @@
 ngX.Component({
     route:"/brand/edit",
     selector: "edit-brand",
-    templateUrl: "",
+    templateUrl: "app",
 });

@@ -7,7 +7,7 @@ angular.module("app", ["ngX"]).config(["$routeProvider", ($routeProvider: any) =
     });
 
     $routeProvider.when("/brand/list", {
-        componentName: "brandList"
+        componentName: "brandListComponent"
     });
 
 

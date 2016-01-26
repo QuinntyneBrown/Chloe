@@ -1,16 +1,13 @@
-﻿class BrandList {
-
+﻿class BrandListComponent {
     constructor(brandStore:any) {
-        this.brands = brandStore.items;
+        this.brands = brandStore.items;        
     }
 
     brands: any[];
-
 }
 
 ngX.Component({
-    route: "/brand/list",
-    selector: "edit-brand",
-    templateUrl: "",
+    component: BrandListComponent,
+    templateUrl: "app/components/brand/brand-list.html",
     providers: ["brandStore"]
 });

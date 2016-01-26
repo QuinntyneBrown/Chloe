@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using Newtonsoft.Json;
 using Owin;
+using Microsoft.Owin.Cors;
 
 namespace Api
 {
@@ -17,6 +18,8 @@ namespace Api
             config.Formatters.JsonFormatter.SerializerSettings = jSettings;
 
             config.MapHttpAttributeRoutes();
+
+            app.UseCors(CorsOptions.AllowAll);
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
