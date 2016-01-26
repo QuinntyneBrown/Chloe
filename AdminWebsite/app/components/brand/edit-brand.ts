@@ -1,12 +1,9 @@
 ﻿class EditBrand {
-
-    constructor() {
-
-    }
+    constructor() { }
 }
 
 ngX.Component({
     route:"/brand/edit",
     selector: "edit-brand",
-    templateUrl: "app",
+    templateUrl: "app/components/brand/edit-brand.html",
 });

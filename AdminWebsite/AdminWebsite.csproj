@@ -81,6 +81,30 @@
     <Content Include="app\components\brand\edit-brand.html">
       <DependentUpon>edit-brand.ts</DependentUpon>
     </Content>
+    <Content Include="app\components\bundle\bundle-list.html">
+      <DependentUpon>bundle-list.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\bundle\edit-bundle.html">
+      <DependentUpon>edit-bundle.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\component\component-list.html">
+      <DependentUpon>component-list.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\component\edit-component.html">
+      <DependentUpon>edit-component.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\page\edit-page.html">
+      <DependentUpon>edit-page.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\page\page-list.html">
+      <DependentUpon>page-list.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\provider\edit-provider.html">
+      <DependentUpon>edit-provider.ts</DependentUpon>
+    </Content>
+    <Content Include="app\components\provider\provider-list.html">
+      <DependentUpon>provider-list.ts</DependentUpon>
+    </Content>
     <Content Include="dist\app.js" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
@@ -104,6 +128,14 @@
     <TypeScriptCompile Include="app\components\app.ts" />
     <TypeScriptCompile Include="app\components\brand\brand-list.ts" />
     <TypeScriptCompile Include="app\components\brand\edit-brand.ts" />
+    <TypeScriptCompile Include="app\components\bundle\bundle-list.ts" />
+    <TypeScriptCompile Include="app\components\bundle\edit-bundle.ts" />
+    <TypeScriptCompile Include="app\components\component\component-list.ts" />
+    <TypeScriptCompile Include="app\components\component\edit-component.ts" />
+    <TypeScriptCompile Include="app\components\page\edit-page.ts" />
+    <TypeScriptCompile Include="app\components\page\page-list.ts" />
+    <TypeScriptCompile Include="app\components\provider\edit-provider.ts" />
+    <TypeScriptCompile Include="app\components\provider\provider-list.ts" />
     <TypeScriptCompile Include="app\domain\brand.ts" />
     <TypeScriptCompile Include="app\domain\bundle.ts" />
     <TypeScriptCompile Include="app\domain\component.ts" />
@@ -128,10 +160,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\bundle\" />
-    <Folder Include="app\components\component\" />
-    <Folder Include="app\components\page\" />
-    <Folder Include="app\components\provider\" />
     <Folder Include="app\metal\" />
   </ItemGroup>
   <PropertyGroup>

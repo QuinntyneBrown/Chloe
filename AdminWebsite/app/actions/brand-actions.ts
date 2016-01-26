@@ -18,7 +18,7 @@
 
     add = (options) => {
         var newGuid = this.guid();
-        this.brandService.add(options).then(function (results) {
+        this.brandService.add(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BRAND_ACTIONS.ADDED,
                 options: { data: results, id: newGuid }
@@ -29,7 +29,7 @@
 
     remove = (options) => {
         var newGuid = this.guid();
-        this.brandService.remove(options).then(function (results) {
+        this.brandService.remove(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BRAND_ACTIONS.REMOVED,
                 options: { data: results, id: newGuid }

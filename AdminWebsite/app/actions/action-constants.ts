@@ -28,3 +28,10 @@ angular.module("app").value("PROVIDER_ACTIONS", {
     ADDED: 13,
     REMOVED: 14,
 });
+
+
+angular.module("app").value("APP_STATE_ACTIONS", {
+    BRAND_SELECTED: 15,
+    PROVIDER_SELECTED: 16,
+    BUNDLE_SELECTED: 17,
+});
