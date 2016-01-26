@@ -36,6 +36,10 @@ namespace Data
 
 
         public IRepository<Brand> Brands { get { return GetStandardRepo<Brand>(); } }
+        public IRepository<Bundle> Bundles { get { return GetStandardRepo<Bundle>(); } }
+        public IRepository<Component> Components { get { return GetStandardRepo<Component>(); } }
+        public IRepository<Page> Pages { get { return GetStandardRepo<Page>(); } }
+        public IRepository<Provider> Providers { get { return GetStandardRepo<Provider>(); } }
 
 
         protected void ConfigureDbContext(IDbContext dbContext)

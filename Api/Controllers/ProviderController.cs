@@ -1,18 +1,30 @@
-﻿using Data.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Dtos;
+using Services.Contracts;
+using System.Web.Http;
 
 namespace Api.Controllers
 {
-    public class ProviderController
+    [RoutePrefix("api/provider")]
+    public class ProviderController : ApiController
     {
-        public ProviderController(IModernCmsUow uow)
-        {
-            this.uow = uow;
-        }
+        public ProviderController(IProviderService service) { this.service = service; }
 
-        protected readonly IModernCmsUow uow;
+        [Route("get")]
+        [HttpGet]
+        public IHttpActionResult Get()
+            => Ok(this.service.Get());
+
+        [Route("add")]
+        [HttpPost]
+        public IHttpActionResult Add(ProviderDto dto)
+            => Ok(this.service.Add(dto));
+
+
+        [Route("remove")]
+        [HttpDelete]
+        public IHttpActionResult Remove(int id)
+        => Ok(service.Remove(id));
+
+        protected readonly IProviderService service;
     }
 }

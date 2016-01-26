@@ -1,24 +1,29 @@
 ﻿class ComponentStore {
-    constructor(dispatcher, COMPONENT_ACTIONS) {
+    constructor(private dispatcher, private COMPONENT_ACTIONS) { }
 
-        dispatcher.addListener({
-            actionType: COMPONENT_ACTIONS.ALL,
+    items: any[];
+
+    storeInstance: any;
+
+    public registerListeners = () => {
+        this.dispatcher.addListener({
+            actionType: this.COMPONENT_ACTIONS.ALL,
             callback: (options) => {
                 this.storeInstance.items = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: COMPONENT_ACTIONS.ADDED,
+        this.dispatcher.addListener({
+            actionType: this.COMPONENT_ACTIONS.ADDED,
             callback: (options) => {
                 this.storeInstance.addOrUpdate({ data: options.data });
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: COMPONENT_ACTIONS.REMOVED,
+        this.dispatcher.addListener({
+            actionType: this.COMPONENT_ACTIONS.REMOVED,
             callback: (options) => {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {
@@ -31,10 +36,6 @@
             }
         });
     }
-
-    items: any[];
-
-    storeInstance: any;
 
 }
 

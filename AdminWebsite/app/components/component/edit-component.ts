@@ -1,9 +1,10 @@
-﻿class EditComponent {
+﻿class EditComponentComponent {
     constructor() { }
 }
 
 ngX.Component({
-    route: "/component/edit",
+    component: EditComponentComponent,
     selector: "edit-component",
     templateUrl: "app/components/component/edit-component.html",
+    inputs: ["component"]
 });

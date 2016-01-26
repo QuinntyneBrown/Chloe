@@ -4,6 +4,7 @@ using Dtos;
 using Services.Contracts;
 using Data.Contracts;
 using System.Linq;
+using Models;
 
 namespace Services
 {
@@ -16,17 +17,19 @@ namespace Services
 
         public BrandDto Add(BrandDto dto)
         {
-            throw new NotImplementedException();
+            var brand = new Brand() { Name = dto.Name };
+            this.uow.Brands.Add(brand);
+            this.uow.SaveChanges();
+            return new BrandDto(brand);
         }
 
         public ICollection<BrandDto> Get()
         {
-            var o = this.uow.Brands
+            return this.uow.Brands
                 .GetAll()
                 .Where(x => x.IsDeleted == false)
-                .ToList();
-
-            return o.Select(x=> new BrandDto(x)).ToList();
+                .ToList()
+                .Select(x => new BrandDto(x)).ToList();
         }
 
         public bool Remove(int id)

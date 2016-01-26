@@ -663,6 +663,7 @@ var ngX;
                         actionType: "CHANGE",
                         callback: instance.storeOnChange
                     });
+
                     $route.current.scope.$on("$destroy", function () {
                         dispatcher.removeListener({ id: listenerId });
                     });

@@ -1,9 +1,10 @@
-﻿class EditProvider {
+﻿class EditProviderComponent {
     constructor() { }
 }
 
 ngX.Component({
-    route: "/provider/edit",
+    component: EditProviderComponent,
     selector: "edit-provider",
     templateUrl: "app/components/provider/edit-provider.html",
+    inputs: ["provider"]
 });

@@ -40,12 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrandService.cs" />
+    <Compile Include="BundleService.cs" />
+    <Compile Include="ComponentService.cs" />
     <Compile Include="Contracts\IBrandService.cs" />
     <Compile Include="Contracts\IBundleService.cs" />
     <Compile Include="Contracts\IComponentService.cs" />
     <Compile Include="Contracts\IPageService.cs" />
     <Compile Include="Contracts\IProviderService.cs" />
+    <Compile Include="PageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProviderService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

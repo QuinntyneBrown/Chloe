@@ -1,24 +1,29 @@
 ﻿class ProviderStore {
-    constructor(dispatcher, PROVIDER_ACTIONS) {
+    constructor(private dispatcher, private PROVIDER_ACTIONS) { }
 
-        dispatcher.addListener({
-            actionType: PROVIDER_ACTIONS.ALL,
+    items: any[];
+
+    storeInstance: any;
+
+    public registerListeners = () => {
+        this.dispatcher.addListener({
+            actionType: this.PROVIDER_ACTIONS.ALL,
             callback: (options) => {
                 this.storeInstance.items = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: PROVIDER_ACTIONS.ADDED,
+        this.dispatcher.addListener({
+            actionType: this.PROVIDER_ACTIONS.ADDED,
             callback: (options) => {
                 this.storeInstance.addOrUpdate({ data: options.data });
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: PROVIDER_ACTIONS.REMOVED,
+        this.dispatcher.addListener({
+            actionType: this.PROVIDER_ACTIONS.REMOVED,
             callback: (options) => {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {
@@ -31,10 +36,6 @@
             }
         });
     }
-
-    items: any[];
-
-    storeInstance: any;
 
 }
 

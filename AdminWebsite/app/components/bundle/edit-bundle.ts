@@ -1,9 +1,10 @@
-﻿class EditBundle {
+﻿class EditBundleComponent {
     constructor() { }
 }
 
 ngX.Component({
-    route: "/bundle/edit",
+    component: EditBrandComponent,
     selector: "edit-bundle",
     templateUrl: "app/components/bundle/edit-bundle.html",
+    inputs: ["bundle"]
 });

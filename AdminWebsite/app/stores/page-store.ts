@@ -1,24 +1,29 @@
 ﻿class PageStore {
-    constructor(dispatcher, PAGE_ACTIONS) {
+    constructor(private dispatcher, private PAGE_ACTIONS) {}
 
-        dispatcher.addListener({
-            actionType: PAGE_ACTIONS.ALL,
+    items: any[];
+
+    storeInstance: any;
+
+    public registerListeners = () => {
+        this.dispatcher.addListener({
+            actionType: this.PAGE_ACTIONS.ALL,
             callback: (options) => {
                 this.storeInstance.items = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: PAGE_ACTIONS.ADDED,
+        this.dispatcher.addListener({
+            actionType: this.PAGE_ACTIONS.ADDED,
             callback: (options) => {
                 this.storeInstance.addOrUpdate({ data: options.data });
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: PAGE_ACTIONS.REMOVED,
+        this.dispatcher.addListener({
+            actionType: this.PAGE_ACTIONS.REMOVED,
             callback: (options) => {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {
@@ -31,10 +36,6 @@
             }
         });
     }
-
-    items: any[];
-
-    storeInstance: any;
 
 }
 

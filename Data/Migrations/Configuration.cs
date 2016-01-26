@@ -14,7 +14,8 @@ namespace Data.Migrations
 
         protected override void Seed(Data.ModernCmsContext context)
         {
-
+            context.Database.Delete();
+            context.Database.CreateIfNotExists();
         }
     }
 }
