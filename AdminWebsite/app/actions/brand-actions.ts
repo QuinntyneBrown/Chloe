@@ -7,11 +7,9 @@
 
     all = () => {
         var newGuid = this.guid();
-        var BRAND_ACTIONS = this.BRAND_ACTIONS;
-        var dispatcher = this.dispatcher;
-        this.brandService.get().then(function (results) {
-            dispatcher.emit({
-                actionType: BRAND_ACTIONS.ALL,
+        this.brandService.get().then((results) => {
+            this.dispatcher.emit({
+                actionType: this.BRAND_ACTIONS.ALL,
                 options: { data: results, id: newGuid }
             });
         });

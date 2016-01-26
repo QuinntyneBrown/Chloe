@@ -1,5 +1,5 @@
 ﻿class BrandListComponent {
-    constructor(brandStore:any) { this.items = brandStore.items; }
+    constructor(brandStore: any) { this.items = brandStore.items; }
 
     items: any[];
 

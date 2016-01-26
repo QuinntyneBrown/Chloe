@@ -2,18 +2,18 @@
     constructor(private dispatcher, private BRAND_ACTIONS) { }
 
     public registerListeners = () => {
-        var storeInstance = this.storeInstance;
+
         this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.ALL,
-            callback: function (options) {
-                storeInstance.items = options.data;
-                storeInstance.emitChange({ id: options.id });
+            callback:  (options) => {
+                this.storeInstance.items = options.data;
+                this.storeInstance.emitChange({ id: options.id });
             }
         });
 
         this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.ADDED,
-            callback: function (options) {
+            callback: (options) => {
                 this.storeInstance.addOrUpdate({ data: options.data });
                 this.storeInstance.emitChange({ id: options.id });
             }
@@ -21,7 +21,7 @@
 
         this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.REMOVED,
-            callback: function (options) {
+            callback:  (options) => {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {
                     if (options.data === items[i].id) {
