@@ -72,24 +72,38 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\components\app.html" />
     <Content Include="gulpfile.js" />
+    <Content Include="index.html" />
+    <Content Include="lib\angular-route.js" />
+    <Content Include="lib\angular.js" />
+    <Content Include="lib\ngX.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\actions\action-constants.ts" />
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\components\app.ts" />
+    <TypeScriptCompile Include="app\services\brand-service.ts" />
+    <TypeScriptCompile Include="app\services\bundle-service.ts" />
+    <TypeScriptCompile Include="app\services\component-service.ts" />
+    <TypeScriptCompile Include="app\services\page-service.ts" />
+    <TypeScriptCompile Include="app\services\provider-service.ts" />
+    <TypeScriptCompile Include="app\stores\brand-store.ts" />
+    <TypeScriptCompile Include="app\stores\bundle-store.ts" />
+    <TypeScriptCompile Include="app\stores\component-store.ts" />
+    <TypeScriptCompile Include="app\stores\page-store.ts" />
+    <TypeScriptCompile Include="app\stores\provider-store.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\actions\" />
-    <Folder Include="app\components\" />
+    <Folder Include="app\domain\" />
     <Folder Include="app\metal\" />
-    <Folder Include="app\services\" />
-    <Folder Include="app\stores\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

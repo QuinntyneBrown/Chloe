@@ -1,1 +1,3 @@
-﻿angular.module("app", ["ngX"]);
+﻿/// <reference path="../typings/angularjs/angular.d.ts" />
+
+angular.module("app", ["ngX"]);

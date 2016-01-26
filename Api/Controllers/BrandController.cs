@@ -8,11 +8,18 @@ using System.Web.Http;
 
 namespace Api.Controllers
 {
-    public class BundleController : ApiController
-    {
-        public BundleController(ISubscribeToProviderUow uow)
+    [RoutePrefix("api/brand")]
+    public class BrandController : ApiController
+    {        
+        public BrandController(ISubscribeToProviderUow uow)
         {
             this.uow = uow;
+        }
+
+        [Route("get")]
+        public string Get()
+        {
+            return "test";
         }
 
         protected readonly ISubscribeToProviderUow uow;

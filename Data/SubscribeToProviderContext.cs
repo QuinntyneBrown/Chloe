@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Data.Contracts;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class SubscribeToProviderContext: DbContext
+    public class SubscribeToProviderContext: DbContext, IDbContext
     {
         public SubscribeToProviderContext()
             : base(nameOrConnectionString: "subscribeToProviderContext")
