@@ -126,6 +126,7 @@
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\components\app-header.ts" />
     <TypeScriptCompile Include="app\components\app.ts" />
+    <TypeScriptCompile Include="app\components\brand-provider-bundle.ts" />
     <TypeScriptCompile Include="app\components\brand\brand-list.ts" />
     <TypeScriptCompile Include="app\components\brand\edit-brand.ts" />
     <TypeScriptCompile Include="app\components\bundle\bundle-list.ts" />
@@ -146,6 +147,7 @@
     <TypeScriptCompile Include="app\services\component-service.ts" />
     <TypeScriptCompile Include="app\services\page-service.ts" />
     <TypeScriptCompile Include="app\services\provider-service.ts" />
+    <TypeScriptCompile Include="app\stores\app-state-store.ts" />
     <TypeScriptCompile Include="app\stores\brand-store.ts" />
     <TypeScriptCompile Include="app\stores\bundle-store.ts" />
     <TypeScriptCompile Include="app\stores\component-store.ts" />

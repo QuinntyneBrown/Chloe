@@ -3,7 +3,7 @@
 
     get() {
         var deferred = this.$q.defer();
-        this.fetch.fromService({ method: "GET", url: this.baseUri + "/get" }).then(function (results) {
+        this.fetch.fromService({ method: "GET", url: this.baseUri + "/get" }).then((results) => {
             deferred.resolve(results.data);
         });
         return deferred.promise;
@@ -11,7 +11,7 @@
 
     add(options) {
         var deferred = this.$q.defer();
-        this.fetch.fromService({ method: "POST", url: this.baseUri + "/add", data: options.data }).then(function (results) {
+        this.fetch.fromService({ method: "POST", url: this.baseUri + "/add", data: options.data }).then((results) => {
             deferred.resolve(results.data);
         });
         return deferred.promise;
@@ -19,7 +19,7 @@
 
     remove(options) {
         var deferred = this.$q.defer();
-        this.fetch.fromService({ method: "DELETE", url: this.baseUri + "/remove", params: { id: options.id } }).then(function (results) {
+        this.fetch.fromService({ method: "DELETE", url: this.baseUri + "/remove", params: { id: options.id } }).then((results) => {
             deferred.resolve(results.data);
         });
         return deferred.promise;

@@ -7,7 +7,7 @@
 
     all = () => {
         var newGuid = this.guid();
-        this.providerService.get().then(function (results) {
+        this.providerService.get().then((results) => {
             this.dispatcher.emit({
                 actionType: this.PROVIDER_ACTIONS.ALL,
                 options: { data: results, id: newGuid }
@@ -18,7 +18,7 @@
 
     add = (options) => {
         var newGuid = this.guid();
-        this.providerService.add(options).then(function (results) {
+        this.providerService.add(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.PROVIDER_ACTIONS.ADDED,
                 options: { data: results, id: newGuid }
@@ -29,7 +29,7 @@
 
     remove = (options) => {
         var newGuid = this.guid();
-        this.providerService.remove(options).then(function (results) {
+        this.providerService.remove(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.PROVIDER_ACTIONS.REMOVED,
                 options: { data: results, id: newGuid }

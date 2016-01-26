@@ -7,7 +7,7 @@
 
     all = () => {
         var newGuid = this.guid();
-        this.bundleService.get().then(function (results) {
+        this.bundleService.get().then((results) => {
             this.dispatcher.emit({
                 actionType: this.BUNDLE_ACTIONS.ALL,
                 options: { data: results, id: newGuid }
@@ -18,7 +18,7 @@
 
     add = (options) => {
         var newGuid = this.guid();
-        this.bundleService.add(options).then(function (results) {
+        this.bundleService.add(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BUNDLE_ACTIONS.ADDED,
                 options: { data: results, id: newGuid }
@@ -29,7 +29,7 @@
 
     remove = (options) => {
         var newGuid = this.guid();
-        this.bundleService.remove(options).then(function (results) {
+        this.bundleService.remove(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BUNDLE_ACTIONS.REMOVED,
                 options: { data: results, id: newGuid }

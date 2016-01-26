@@ -3,7 +3,7 @@
 
         dispatcher.addListener({
             actionType: PROVIDER_ACTIONS.ALL,
-            callback: function (options) {
+            callback: (options) => {
                 this.storeInstance.items = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
@@ -11,7 +11,7 @@
 
         dispatcher.addListener({
             actionType: PROVIDER_ACTIONS.ADDED,
-            callback: function (options) {
+            callback: (options) => {
                 this.storeInstance.addOrUpdate({ data: options.data });
                 this.storeInstance.emitChange({ id: options.id });
             }
@@ -19,7 +19,7 @@
 
         dispatcher.addListener({
             actionType: PROVIDER_ACTIONS.REMOVED,
-            callback: function (options) {
+            callback: (options) => {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {
                     if (options.data === items[i].id) {
