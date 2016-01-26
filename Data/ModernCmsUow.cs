@@ -1,4 +1,5 @@
 ﻿using Data.Contracts;
+using Models;
 using System;
 
 namespace Data
@@ -32,6 +33,10 @@ namespace Data
 
             RepositoryProvider = repositoryProvider;
         }
+
+
+        public IRepository<Brand> Brands { get { return GetStandardRepo<Brand>(); } }
+
 
         protected void ConfigureDbContext(IDbContext dbContext)
         {

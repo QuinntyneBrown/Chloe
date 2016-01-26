@@ -154,6 +154,10 @@
       <Project>{5a8a779c-147a-481b-9ed7-d7bbdefe62e5}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dtos\Dtos.csproj">
+      <Project>{de7f4b5e-5e9e-4693-aaa9-b55c7694b208}</Project>
+      <Name>Dtos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{3f8ad5ff-f1a3-403c-b33c-84def9ea2668}</Project>
       <Name>Models</Name>

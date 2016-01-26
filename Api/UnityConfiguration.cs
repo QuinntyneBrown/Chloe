@@ -1,6 +1,8 @@
 ﻿using Data;
 using Data.Contracts;
 using Microsoft.Practices.Unity;
+using Services;
+using Services.Contracts;
 
 namespace Api
 {
@@ -12,6 +14,7 @@ namespace Api
             container.RegisterType<IModernCmsUow, ModernCmsUow>();
             container.RegisterType<IDbContext, ModernCmsContext>();
             container.RegisterType<IRepositoryProvider, RepositoryProvider>();
+            container.RegisterType<IBrandService, BrandService>();
             return container;
         }
     }
