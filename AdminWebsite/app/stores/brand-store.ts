@@ -1,24 +1,26 @@
 ﻿class BrandStore {
-    constructor(dispatcher, BRAND_ACTIONS) {
+    constructor(private dispatcher, private BRAND_ACTIONS) { }
 
-        dispatcher.addListener({
-            actionType: BRAND_ACTIONS.ALL,
+    public registerListeners = () => {
+        var storeInstance = this.storeInstance;
+        this.dispatcher.addListener({
+            actionType: this.BRAND_ACTIONS.ALL,
             callback: function (options) {
-                this.storeInstanceitems = options.data;
-                this.storeInstance.emitChange({ id: options.id });
+                storeInstance.items = options.data;
+                storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: BRAND_ACTIONS.ADDED,
+        this.dispatcher.addListener({
+            actionType: this.BRAND_ACTIONS.ADDED,
             callback: function (options) {
                 this.storeInstance.addOrUpdate({ data: options.data });
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
 
-        dispatcher.addListener({
-            actionType: BRAND_ACTIONS.REMOVED,
+        this.dispatcher.addListener({
+            actionType: this.BRAND_ACTIONS.REMOVED,
             callback: function (options) {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {

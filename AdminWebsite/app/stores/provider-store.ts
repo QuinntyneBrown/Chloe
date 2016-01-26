@@ -4,7 +4,7 @@
         dispatcher.addListener({
             actionType: PROVIDER_ACTIONS.ALL,
             callback: function (options) {
-                this.storeInstanceitems = options.data;
+                this.storeInstance.items = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
         });

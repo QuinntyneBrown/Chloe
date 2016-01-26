@@ -1540,6 +1540,9 @@ var ngX;
                 store.getById = function (id) { return store.storeInstance.getById(id); };
                 if (store.connection)
                     store.connection.start({ transport: 'longPolling' }, function () { });
+
+                if (store.registerListeners)
+                    store.registerListeners();
             }]);
     };
 })(ngX || (ngX = {}));

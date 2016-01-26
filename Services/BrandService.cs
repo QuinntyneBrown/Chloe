@@ -21,11 +21,12 @@ namespace Services
 
         public ICollection<BrandDto> Get()
         {
-            return this.uow.Brands
+            var o = this.uow.Brands
                 .GetAll()
                 .Where(x => x.IsDeleted == false)
-                .Select(x => new BrandDto(x))
                 .ToList();
+
+            return o.Select(x=> new BrandDto(x)).ToList();
         }
 
         public bool Remove(int id)

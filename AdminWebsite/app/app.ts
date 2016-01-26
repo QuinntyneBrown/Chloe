@@ -1,6 +1,6 @@
 ﻿/// <reference path="../typings/angularjs/angular.d.ts" />
 
-angular.module("app", ["ngX"]).config(["$routeProvider", ($routeProvider: any) => {
+angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", ($routeProvider: any, apiEndpointProvider:any) => {
 
     $routeProvider.when("/brand/edit/:id", {
         componentName: "editBrand"
@@ -9,8 +9,7 @@ angular.module("app", ["ngX"]).config(["$routeProvider", ($routeProvider: any) =
     $routeProvider.when("/brand/list", {
         componentName: "brandListComponent"
     });
-
-
+    
     $routeProvider.when("/page/edit/:id", {
         componentName: "pageEdit"
     });
@@ -29,4 +28,7 @@ angular.module("app", ["ngX"]).config(["$routeProvider", ($routeProvider: any) =
 
 
     $routeProvider.otherwise("/brand/list");
+
+    apiEndpointProvider.configure("http://localhost:54965/api");
+
 }]);

@@ -1,7 +1,7 @@
 ﻿class ComponentService {
     constructor(private $q, private apiEndpoint, private fetch) { }
 
-    get(options) {
+    get() {
         var deferred = this.$q.defer();
         this.fetch.fromService({ method: "GET", url: this.baseUri + "/get" }).then(function (results) {
             deferred.resolve(results.data);
