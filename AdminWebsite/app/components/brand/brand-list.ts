@@ -24,15 +24,22 @@
     }
     
     static canActivate() {
-        return ["brandActions", "invokeAsync", (brandActions, invokeAsync) => {            
-            return invokeAsync(brandActions.all);            
+        return ["$q", "$route", "brandActions", "invokeAsync", "providerActions", ($q, $route, brandActions, invokeAsync, providerActions) => {               
+            var promises = [];
+            promises.push(invokeAsync(brandActions.all));
+            if ($route.current.params.id) 
+                promises.push(invokeAsync({
+                    action: providerActions.getAllByBrandId,
+                    params: { id: Number($route.current.params.id) }
+                }));
+            return $q.all(promises);            
         }];
     }
 }
 
 ngX.Component({
     component: BrandListComponent,
-    route:"/brand/list",
+    routes: ["/brand/list", "/brand/edit/:id"],
     templateUrl: "app/components/brand/brand-list.html",
     providers: ["brand", "brandStore"]
 });

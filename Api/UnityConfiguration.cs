@@ -19,7 +19,6 @@ namespace Api
             container.RegisterType<IComponentService, ComponentService>();
             container.RegisterType<IPageService, PageService>();
             container.RegisterType<IProviderService, ProviderService>();
-
             return container;
         }
     }

@@ -1,4 +1,6 @@
 ﻿using Models;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Dtos
 {
@@ -8,6 +10,7 @@ namespace Dtos
         {
             this.Id = provider.Id;
             this.Name = provider.Name;
+            this.Bundles = provider.Bundles.Select(x => new BundleDto(x)).ToList();
         }
 
         public ProviderDto()
@@ -17,5 +20,6 @@ namespace Dtos
 
         public string Name { get; set; }
         public int Id { get; set; }
+        public ICollection<BundleDto> Bundles { get; set; }
     }
 }

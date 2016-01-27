@@ -9,7 +9,11 @@ angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", 
     $routeProvider.when("/brand/list", {
         componentName: "brandListComponent"
     });
-    
+
+    $routeProvider.when("/brand/edit/:id", {
+        componentName: "brandListComponent"
+    });
+        
     $routeProvider.when("/bundle/list", {
         componentName: "bundleListComponent"
     });

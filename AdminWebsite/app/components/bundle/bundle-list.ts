@@ -8,10 +8,8 @@
             }));
         }        
     }
-
-
+    
     items: any[];
-
     modelInstance: any;
 
     storeOnChange = () => {
@@ -23,8 +21,7 @@
             }));
         }
     }
-
-
+    
     static canActivate() {
         return ["bundleActions", "invokeAsync", (bundleActions, invokeAsync) => {
             return invokeAsync(bundleActions.all);

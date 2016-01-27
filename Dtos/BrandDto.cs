@@ -1,5 +1,6 @@
 ﻿using Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dtos
 {
@@ -8,6 +9,7 @@ namespace Dtos
         public BrandDto(Brand brand) {
             this.Id = brand.Id;
             this.Name = brand.Name;
+            this.Providers = brand.Providers.Select(x => new ProviderDto(x)).ToList();
         }
 
         public BrandDto()

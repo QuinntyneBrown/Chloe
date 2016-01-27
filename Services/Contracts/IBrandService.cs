@@ -8,5 +8,6 @@ namespace Services.Contracts
         BrandDto Add(BrandDto dto);
         bool Remove(int id);
         ICollection<BrandDto> Get();
+        ICollection<BrandDto> GetAllIncludingChildren();
     }
 }
