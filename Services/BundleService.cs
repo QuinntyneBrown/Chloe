@@ -18,7 +18,10 @@ namespace Services
 
         public BundleDto Add(BundleDto dto)
         {
-            throw new NotImplementedException();
+            var entity = new Bundle() { Name = dto.Name };
+            this.uow.Bundles.Add(entity);
+            this.uow.SaveChanges();
+            return new BundleDto(entity);
         }
 
         public ICollection<BundleDto> Get()

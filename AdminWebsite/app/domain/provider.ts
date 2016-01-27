@@ -1,7 +1,14 @@
 ﻿class Provider {
     constructor(private $injector, private $q, private providerActions, private invokeAsync) { }
 
-    createInstance = (options) => { return new Provider(this.$injector, this.$q, this.providerActions, this.invokeAsync); }
+    createInstance = (options) => {
+        var instance = new Provider(this.$injector, this.$q, this.providerActions, this.invokeAsync);
+        if (options && options.data) {
+            instance.id = options.data.id;
+            instance.name = options.data.name;
+        }
+        return instance;
+    }
 
     id: number;
 

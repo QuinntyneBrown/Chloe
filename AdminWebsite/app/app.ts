@@ -24,6 +24,7 @@ angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", 
     
     $routeProvider.otherwise("/brand/list");
 
-    apiEndpointProvider.configure("http://moderncms.azurewebsites.net/api");
+    apiEndpointProvider.configure("http://localhost:54965/api");
+    //apiEndpointProvider.configure("http://moderncms.azurewebsites.net/api");
 
 }]);

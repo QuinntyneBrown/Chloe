@@ -1,9 +1,4 @@
 ﻿using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dtos
 {
@@ -11,7 +6,17 @@ namespace Dtos
     {
         public ComponentDto(Component component)
         {
+            this.Name = component.Name;
+            this.Id = component.Id;
+        }
+
+        public ComponentDto()
+        {
 
         }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+
     }
 }

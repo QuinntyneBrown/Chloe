@@ -1,5 +1,6 @@
 ﻿class EditPageComponent {
     constructor() { }
+    
 }
 
 ngX.Component({

@@ -4,6 +4,7 @@ using Services.Contracts;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Models;
 
 namespace Services
 {
@@ -16,7 +17,10 @@ namespace Services
 
         public ComponentDto Add(ComponentDto dto)
         {
-            throw new NotImplementedException();
+            var entity = new Component() { Name = dto.Name };
+            this.uow.Components.Add(entity);
+            this.uow.SaveChanges();
+            return new ComponentDto(entity);
         }
 
         public ICollection<ComponentDto> Get()

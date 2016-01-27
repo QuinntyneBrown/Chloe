@@ -53,6 +53,19 @@ namespace Data
                         m.ToTable("BrandProviders");
                     });
 
+
+            modelBuilder.Entity<Brand>().
+
+                HasMany(u => u.Pages).
+                WithMany(g => g.Brands).
+
+                Map(
+                    m =>
+                    {
+                        m.MapLeftKey("Brand_Id");
+                        m.MapRightKey("Page_Id");
+                        m.ToTable("BrandPages");
+                    });
         } 
     }
 }

@@ -1,17 +1,21 @@
 ﻿using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dtos
 {
     public class PageDto
     {
-        public PageDto(Page page)
+        public PageDto()
         {
 
         }
+
+        public PageDto(Page page)
+        {
+            this.Id = page.Id;
+            this.Name = page.Name;            
+        }
+
+        public string Name { get; set; }
+        public int Id { get; set; }        
     }
 }

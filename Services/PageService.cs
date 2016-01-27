@@ -4,6 +4,7 @@ using Services.Contracts;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Models;
 
 namespace Services
 {
@@ -16,7 +17,10 @@ namespace Services
 
         public PageDto Add(PageDto dto)
         {
-            throw new NotImplementedException();
+            var entity = new Page() { Name = dto.Name };
+            this.uow.Pages.Add(entity);
+            this.uow.SaveChanges();
+            return new PageDto(entity);
         }
 
         public ICollection<PageDto> Get()
