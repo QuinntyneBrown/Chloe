@@ -32,7 +32,7 @@
         this.pageService.remove(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.PAGE_ACTIONS.REMOVED,
-                options: { data: results, id: newGuid }
+                options: { data: options.id, id: newGuid }
             });
         });
         return newGuid;

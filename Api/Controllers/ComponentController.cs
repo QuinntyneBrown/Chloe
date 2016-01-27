@@ -7,7 +7,7 @@ namespace Api.Controllers
     [RoutePrefix("api/component")]
     public class ComponentController : ApiController
     {
-        public ComponentController(IBrandService service) { this.service = service; }
+        public ComponentController(IComponentService service) { this.service = service; }
 
         [Route("get")]
         [HttpGet]
@@ -16,7 +16,7 @@ namespace Api.Controllers
 
         [Route("add")]
         [HttpPost]
-        public IHttpActionResult Add(BrandDto dto)
+        public IHttpActionResult Add(ComponentDto dto)
             => Ok(this.service.Add(dto));
 
 
@@ -25,6 +25,6 @@ namespace Api.Controllers
         public IHttpActionResult Remove(int id)
         => Ok(service.Remove(id));
 
-        protected readonly IBrandService service;
+        protected readonly IComponentService service;
     }
 }

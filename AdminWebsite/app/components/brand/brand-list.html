@@ -4,6 +4,7 @@
 
     <div class="brand-list-item" data-ng-repeat="item in vm.items">
         <h1>Name: {{ item.name }}</h1>
+        <button data-ng-click="item.remove()" >delete</button>
     </div>
 
 </div>

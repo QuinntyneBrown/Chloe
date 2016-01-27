@@ -94,15 +94,16 @@
     <Content Include="app\components\component\edit-component.html">
       <DependentUpon>edit-component.ts</DependentUpon>
     </Content>
+    <Content Include="app\components\home.html">
+      <DependentUpon>home.ts</DependentUpon>
+    </Content>
     <Content Include="app\components\page\edit-page.html">
       <DependentUpon>edit-page.ts</DependentUpon>
     </Content>
     <Content Include="app\components\page\page-list.html">
       <DependentUpon>page-list.ts</DependentUpon>
     </Content>
-    <Content Include="app\components\provider\edit-provider.html">
-      <DependentUpon>edit-provider.ts</DependentUpon>
-    </Content>
+    <Content Include="app\components\provider\edit-provider.html" />
     <Content Include="app\components\provider\provider-list.html">
       <DependentUpon>provider-list.ts</DependentUpon>
     </Content>
@@ -126,6 +127,7 @@
     <TypeScriptCompile Include="app\actions\provider-actions.ts" />
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\components\app-header.ts" />
+    <TypeScriptCompile Include="app\components\home.ts" />
     <TypeScriptCompile Include="app\components\app.ts" />
     <TypeScriptCompile Include="app\components\brand-provider-bundle.ts" />
     <TypeScriptCompile Include="app\components\brand\brand-list.ts" />

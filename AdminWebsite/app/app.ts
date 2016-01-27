@@ -2,16 +2,20 @@
 
 angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", ($routeProvider: any, apiEndpointProvider:any) => {
 
+    $routeProvider.when("/", {
+        componentName: "homeComponent"
+    });
+
     $routeProvider.when("/brand/list", {
         componentName: "brandListComponent"
     });
     
     $routeProvider.when("/bundle/list", {
-        componentName: "bundleList"
+        componentName: "bundleListComponent"
     });
 
     $routeProvider.when("/component/list", {
-        componentName: "componentList"
+        componentName: "componentListComponent"
     });
     
     $routeProvider.when("/page/list", {
@@ -22,7 +26,7 @@ angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", 
         componentName: "providerListComponent"
     });
     
-    $routeProvider.otherwise("/brand/list");
+    $routeProvider.otherwise("/");
 
     apiEndpointProvider.configure("http://localhost:54965/api");
     //apiEndpointProvider.configure("http://moderncms.azurewebsites.net/api");

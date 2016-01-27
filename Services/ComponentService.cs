@@ -34,7 +34,10 @@ namespace Services
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            var entity = uow.Components.GetById(id);
+            entity.IsDeleted = true;
+            uow.SaveChanges();
+            return true;
         }
 
         protected readonly IModernCmsUow uow;

@@ -21,13 +21,13 @@
 
         this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.REMOVED,
-            callback:  (options) => {
+            callback: (options) => {
                 var items = this.storeInstance.items;
                 for (var i = 0; i < items.length; i++) {
                     if (options.data === items[i].id) {
                         items.splice(i, 1);
                     }
-                }
+                }                
                 this.storeInstance.items = items;
                 this.storeInstance.emitChange({ id: options.id });
             }

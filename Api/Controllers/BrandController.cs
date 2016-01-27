@@ -23,7 +23,7 @@ namespace Api.Controllers
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id)
-        => Ok(service.Remove(id));
+            => Ok(service.Remove(id));
 
         protected readonly IBrandService service;
     }

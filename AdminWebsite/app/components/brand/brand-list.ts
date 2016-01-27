@@ -1,5 +1,5 @@
 ﻿class BrandListComponent {
-    constructor(private $scope, private brand, private brandStore) {
+    constructor(private brand, private brandStore) {
         this.modelInstance = this.brand.createInstance();
         this.items = [];
         for (var i = 0; i < this.brandStore.items.length; i++) {
@@ -34,5 +34,5 @@ ngX.Component({
     component: BrandListComponent,
     route:"/brand/list",
     templateUrl: "app/components/brand/brand-list.html",
-    providers: ["$scope","brand", "brandStore"]
+    providers: ["brand", "brandStore"]
 });

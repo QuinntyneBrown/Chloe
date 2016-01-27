@@ -32,7 +32,7 @@
         this.bundleService.remove(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BUNDLE_ACTIONS.REMOVED,
-                options: { data: results, id: newGuid }
+                options: { data: options.id, id: newGuid }
             });
         });
         return newGuid;

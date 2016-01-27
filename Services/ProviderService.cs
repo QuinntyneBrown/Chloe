@@ -1,7 +1,6 @@
 ﻿using Data.Contracts;
 using Dtos;
 using Services.Contracts;
-using System;
 using System.Linq;
 using System.Collections.Generic;
 using Models;
@@ -34,7 +33,10 @@ namespace Services
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            var entity = uow.Providers.GetById(id);
+            entity.IsDeleted = true;
+            uow.SaveChanges();
+            return true;
         }
 
         protected readonly IModernCmsUow uow;
