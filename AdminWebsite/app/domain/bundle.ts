@@ -2,7 +2,7 @@
 
     constructor(private $injector, private $q, private bundleActions, private invokeAsync) { }
 
-    createInstance = () => { return new Bundle(this.$injector, this.$q, this.bundleActions, this.invokeAsync); }
+    createInstance = (options) => { return new Bundle(this.$injector, this.$q, this.bundleActions, this.invokeAsync); }
 
     id: number;
 

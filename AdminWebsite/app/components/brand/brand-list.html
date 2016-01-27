@@ -1,9 +1,9 @@
 ﻿<div class="brand-list">   
     
-    <edit-brand brand="vm.brandInstance"></edit-brand>    
+    <edit-brand brand="vm.modelInstance"></edit-brand>    
 
-    <div class="brand-list-item" data-ng-repeat="item in vm.brandStore.items track by item.Id">
-        <h1>Name: {{ item.Name }}</h1>
+    <div class="brand-list-item" data-ng-repeat="item in vm.items">
+        <h1>Name: {{ item.name }}</h1>
     </div>
 
 </div>

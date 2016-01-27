@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Owin;
 using Microsoft.Owin.Cors;
+using Newtonsoft.Json.Serialization;
 
 namespace Api
 {
@@ -12,7 +13,9 @@ namespace Api
             var jSettings = new JsonSerializerSettings();
             
             jSettings.Formatting = Formatting.Indented;
-            
+
+            jSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             config.Formatters.JsonFormatter.SerializerSettings = jSettings;

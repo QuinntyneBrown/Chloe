@@ -1,7 +1,7 @@
 ﻿class Page {
     constructor(private $injector, private $q, private pageActions, private invokeAsync) { }
 
-    createInstance = () => { return new Page(this.$injector, this.$q, this.pageActions, this.invokeAsync); }
+    createInstance = (options) => { return new Page(this.$injector, this.$q, this.pageActions, this.invokeAsync); }
 
     id: number;
 

@@ -1,3 +1,14 @@
 ﻿<div class="edit-page">
 
+    <h1 data-ng-if="vm.page.id">Edit Page</h1>
+
+    <h1 data-ng-if="!vm.page.id">Create Page</h1>
+
+    <div>
+        <input placeholder="Name" data-ng-model="vm.page.name" />
+    </div>
+
+    <button data-ng-click="vm.page.save()">
+        Save
+    </button>
 </div>

@@ -1,24 +1,28 @@
 ﻿class BrandListComponent {
-    constructor(private $scope, private brand, private brandStore, private safeDigest) {
-        this.brandInstance = this.brand.createInstance();
-        this.items = this.brandStore.items;
+    constructor(private $scope, private brand, private brandStore) {
+        this.modelInstance = this.brand.createInstance();
+        this.items = [];
+        for (var i = 0; i < this.brandStore.items.length; i++) {
+            this.items.push(this.brand.createInstance({
+                data: this.brandStore.items[i]
+            }));
+        }                
     }
     
     items: any[] = [];
 
-    brandInstance: any;
+    modelInstance: any;
     
     storeOnChange = () => {
-        //alert(this.items.length === this.brandStore.items.length);
-        //this.items.push(this.brandStore.items[this.brandStore.items.length - 1]);
-        this.brandInstance = this.brand.createInstance();
-        //this.safeDigest(this.$scope);
+        this.modelInstance = this.brand.createInstance();
+        this.items = [];
+        for (var i = 0; i < this.brandStore.items.length; i++) {
+            this.items.push(this.brand.createInstance({
+                data: this.brandStore.items[i]
+            }));
+        }        
     }
-
-    getItems = () => {
-        return this.items;
-    }
-
+    
     static canActivate() {
         return ["brandActions", "invokeAsync", (brandActions, invokeAsync) => {            
             return invokeAsync(brandActions.all);            
@@ -30,5 +34,5 @@ ngX.Component({
     component: BrandListComponent,
     route:"/brand/list",
     templateUrl: "app/components/brand/brand-list.html",
-    providers: ["$scope","brand", "brandStore", "safeDigest"]
+    providers: ["$scope","brand", "brandStore"]
 });

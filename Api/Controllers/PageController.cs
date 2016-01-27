@@ -2,13 +2,12 @@
 using Services.Contracts;
 using System.Web.Http;
 
-
 namespace Api.Controllers
 {
     [RoutePrefix("api/page")]
     public class PageController : ApiController
     {
-        public PageController(IBrandService service) { this.service = service; }
+        public PageController(IPageService service) { this.service = service; }
 
         [Route("get")]
         [HttpGet]
@@ -17,15 +16,15 @@ namespace Api.Controllers
 
         [Route("add")]
         [HttpPost]
-        public IHttpActionResult Add(BrandDto dto)
+        public IHttpActionResult Add(PageDto dto)
             => Ok(this.service.Add(dto));
 
 
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id)
-        => Ok(service.Remove(id));
+            => Ok(service.Remove(id));
 
-        protected readonly IBrandService service;
+        protected readonly IPageService service;
     }
 }

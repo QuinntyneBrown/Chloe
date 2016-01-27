@@ -5,7 +5,7 @@
 
         this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.ALL,
-            callback:  (options) => {
+            callback: (options) => {
                 this.storeInstance.items = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }

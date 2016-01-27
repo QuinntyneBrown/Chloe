@@ -2,7 +2,7 @@
 
     constructor(private $injector, private $q, private componentActions, private invokeAsync) { }
 
-    createInstance = () => { return new Brand(this.$injector, this.$q, this.componentActions, this.invokeAsync); }
+    createInstance = (options) => { return new Brand(this.$injector, this.$q, this.componentActions, this.invokeAsync); }
 
     id: number;
 

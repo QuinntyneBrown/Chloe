@@ -6,5 +6,8 @@ ngX.Component({
     component: EditPageComponent,
     selector: "edit-page",
     templateUrl: "app/components/page/edit-page.html",
-    inputs: ["page"]
+    inputs: ["page"],
+    styles: [
+        " .edit-page {}"
+    ]
 });
