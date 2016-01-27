@@ -1,9 +1,10 @@
 ﻿<div class="brand-list">   
     
-    <edit-brand brand="vm.modelInstance"></edit-brand>    
+    <edit-brand brand="vm.modelInstance" providers="vm.providers"></edit-brand>    
 
     <div class="brand-list-item" data-ng-repeat="item in vm.items">
         <h1>Name: {{ item.name }}</h1>
+        <button data-ng-click="item.edit()">edit</button>
         <button data-ng-click="item.remove()" >delete</button>
     </div>
 

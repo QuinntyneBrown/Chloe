@@ -1,9 +1,9 @@
 ﻿class Brand {
 
-    constructor(private $injector, private $q, private brandActions, private invokeAsync) { }
+    constructor(private $injector, private $location, private $q, private brandActions, private invokeAsync) { }
 
     createInstance = (options) => {
-        var instance = new Brand(this.$injector, this.$q, this.brandActions, this.invokeAsync);
+        var instance = new Brand(this.$injector, this.$location, this.$q, this.brandActions, this.invokeAsync);
         if (options && options.data) {
             instance.id = options.data.id;
             instance.name = options.data.name;
@@ -11,16 +11,22 @@
         return instance;
     }
     
-    id: number;
-     
+    id: number;     
     name: string;
-    
+    providers: any[] = [];
+
     save = () => {
         return this.brandActions.add({
             data: {
-                name: this.name
+                id: this.id,
+                name: this.name,
+                providers: this.providers
             }
         });
+    }
+
+    edit = () => {
+        this.$location.path("/brand/edit/" + this.id);
     }
 
     remove = () => {
@@ -29,4 +35,4 @@
 }
 
 angular.module("app").service("brand",
-    ["$injector", "$q", "brandActions", "invokeAsync", Brand]);
+    ["$injector", "$location", "$q", "brandActions", "invokeAsync", Brand]);

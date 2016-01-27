@@ -15,11 +15,12 @@ namespace Dtos
 
         public ProviderDto()
         {
-
+            this.Bundles = new HashSet<BundleDto>();
         }
 
         public string Name { get; set; }
         public int Id { get; set; }
+        public bool? Checked { get; set; }
         public ICollection<BundleDto> Bundles { get; set; }
     }
 }

@@ -9,11 +9,17 @@ namespace Api.Controllers
     {        
         public BrandController(IBrandService service) { this.service = service; }
 
+        [Route("GetProvidersByBrandId")]
+        [HttpGet]
+        public IHttpActionResult GetProvidersByBrandId(int id)
+            => Ok(this.service.GetProvidersByBrandId(id));
+
+
         [Route("get")]
         [HttpGet]
         public IHttpActionResult Get() 
             => Ok(this.service.Get());
-
+        
         [Route("getAllIncludingChildren")]
         [HttpGet]
         public IHttpActionResult GetAllIncludingChildren()

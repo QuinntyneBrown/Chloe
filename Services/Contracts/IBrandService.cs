@@ -9,5 +9,6 @@ namespace Services.Contracts
         bool Remove(int id);
         ICollection<BrandDto> Get();
         ICollection<BrandDto> GetAllIncludingChildren();
+        ICollection<ProviderDto> GetProvidersByBrandId(int id);
     }
 }

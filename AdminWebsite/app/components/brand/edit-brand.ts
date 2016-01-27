@@ -8,7 +8,7 @@ ngX.Component({
     component: EditBrandComponent,
     selector: "edit-brand",
     templateUrl: "app/components/brand/edit-brand.html",
-    inputs:["brand"],
+    inputs: ["brand"],
     styles: [
         " .edit-brand {}"
     ]

@@ -1,11 +1,18 @@
 ﻿<div class="edit-brand">
 
-    <h1 data-ng-if="vm.brand.id">Edit Brand</h1>
+    <h1 data-ng-if="vm.brand.id">Edit Brand <span>: {{ vm.brand.name }}</span></h1>
 
-    <h1 data-ng-if="!vm.brand.id">Create Brand</h1>
+    <h1 data-ng-if="!vm.brand.id">Create Brand <span data-ng-if="vm.brand.name">: {{ vm.brand.name }}</span></h1>
 
     <div>
         <input placeholder="Name" data-ng-model="vm.brand.name" />
+    </div>
+
+    <div data-ng-repeat='item in vm.brand.providers'>
+        <label>
+            <input type="checkbox" data-ng-model='item.checked' />
+            {{ item.name }}
+        </label>
     </div>
 
     <button data-ng-click="vm.brand.save()">

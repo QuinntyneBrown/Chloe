@@ -16,12 +16,35 @@
         return newGuid;
     }
 
+    getProvidersByBrandId = (options) => {
+        var newGuid = this.guid();
+        this.brandService.getProvidersByBrandId(options).then((results) => {
+            this.dispatcher.emit({
+                actionType: this.BRAND_ACTIONS.PROVIDERS_BY_BRAND,
+                options: { data: results, id: newGuid }
+            });
+        });
+        return newGuid;
+    }
+
     add = (options) => {
         var newGuid = this.guid();
         this.brandService.add(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BRAND_ACTIONS.ADDED,
                 options: { data: results, id: newGuid }
+            });
+
+            var providers = [];
+
+            for (var i = 0; i < options.data.providers.length; i++) {
+                if (options.data.providers[i].checked) {
+                    providers.push(options.data.providers[i]);
+                }
+            }
+            this.dispatcher.emit({
+                actionType: this.BRAND_ACTIONS.PROVIDERS_BY_BRAND,
+                options: { data: providers, id: newGuid }
             });
         });
         return newGuid;

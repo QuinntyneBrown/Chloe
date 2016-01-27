@@ -3,6 +3,7 @@ angular.module("app").value("BRAND_ACTIONS", {
     ALL: 0,
     ADDED: 1,
     REMOVED: 2,
+    PROVIDERS_BY_BRAND:60
 });
 
 angular.module("app").value("BUNDLE_ACTIONS", {

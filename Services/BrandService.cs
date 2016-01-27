@@ -5,6 +5,7 @@ using Services.Contracts;
 using Data.Contracts;
 using System.Linq;
 using Models;
+using System;
 
 namespace Services
 {
@@ -17,8 +18,26 @@ namespace Services
 
         public BrandDto Add(BrandDto dto)
         {
-            var brand = new Brand() { Name = dto.Name };
-            this.uow.Brands.Add(brand);
+            var brand = new Brand();
+
+            if (dto.Id != 0)
+            {
+                brand = uow.Brands.GetAll().Where(x => x.Id == dto.Id).Include(x => x.Providers).Single();
+                brand.Name = dto.Name;
+                brand.Providers = new List<Provider>();
+            } else
+            {
+                brand = new Brand() { Name = dto.Name };
+                this.uow.Brands.Add(brand);
+            }
+                
+            foreach(var provider in dto.Providers)
+            {
+                if(provider.Checked == true)
+                {
+                    brand.Providers.Add(uow.Providers.GetById(provider.Id));
+                }
+            }
             this.uow.SaveChanges();
             return new BrandDto(brand);
         }
@@ -59,6 +78,18 @@ namespace Services
                 dtos.Add(new BrandDto(brand));
             }
             return dtos;
+        }
+
+        public ICollection<ProviderDto> GetProvidersByBrandId(int id)
+        {
+            return this.uow.Brands
+                .GetAll()
+                .Where(x => x.Id == id)
+                .Include(x=>x.Providers)
+                .Single()
+                .Providers
+                .Where(x=>x.IsDeleted ==false)
+                .Select(x => new ProviderDto(x)).ToList();
         }
 
         protected readonly IModernCmsUow uow;

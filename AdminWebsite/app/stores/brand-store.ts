@@ -12,6 +12,14 @@
         });
 
         this.dispatcher.addListener({
+            actionType: this.BRAND_ACTIONS.PROVIDERS_BY_BRAND,
+            callback: (options) => {
+                this.providersByBrand = options.data;
+                this.storeInstance.emitChange({ id: options.id });
+            }
+        });
+
+        this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.ADDED,
             callback: (options) => {
                 this.storeInstance.addOrUpdate({ data: options.data });
@@ -35,7 +43,7 @@
     }
 
     items: any[];
-
+    providersByBrand: any[] = [];
     storeInstance: any;
     
 }
