@@ -1,15 +1,9 @@
 ﻿class BrandListComponent {
-    constructor(private $routeParams, private brand, private brandStore, private provider, private providerStore) {
-        //if (!this.$routeParams.id) {
-        //    this.brandStore.providersByBrand = [];
-        //}
-    }
+    constructor(private $routeParams, private brand, private brandStore, private provider, private providerStore) { }
     
     onInit = () => {
-
         if (!this.$routeParams.id) {
             this.modelInstance = this.brand.createInstance();
-            
         } else {
             for (var i = 0; i < this.brandStore.items.length; i++) {
                 if (Number(this.$routeParams.id) === this.brandStore.items[i].id) {
@@ -31,13 +25,11 @@
             var provider = this.provider.createInstance({
                 data: this.providerStore.items[i]
             });
-
             for (var x = 0; x < this.brandStore.providersByBrand.length; x++) {
                 if (provider.id == this.brandStore.providersByBrand[x].id) {
                     provider.checked = true;
                 }
             }
-
             this.modelInstance.providers.push(provider);
         }  
         
