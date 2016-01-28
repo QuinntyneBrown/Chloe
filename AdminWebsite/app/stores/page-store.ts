@@ -4,6 +4,7 @@
     items: any[];
 
     storeInstance: any;
+    componentsByPage = [];
 
     public registerListeners = () => {
         this.dispatcher.addListener({

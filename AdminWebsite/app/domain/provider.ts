@@ -26,6 +26,8 @@
 
     remove = () => { return this.providerActions.remove({ id: this.id }); }
 
+    create = () => { this.$location.path("/provider/list"); }
+
     edit = () => { this.$location.path("/provider/edit/" + this.id); }
 }
 

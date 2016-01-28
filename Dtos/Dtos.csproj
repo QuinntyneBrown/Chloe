@@ -43,12 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrandDto.cs" />
-    <Compile Include="BrandProviderDto.cs" />
     <Compile Include="BundleDto.cs" />
     <Compile Include="ComponentDto.cs" />
     <Compile Include="PageDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProviderBundleDto.cs" />
     <Compile Include="ProviderDto.cs" />
   </ItemGroup>
   <ItemGroup>

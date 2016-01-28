@@ -8,7 +8,5 @@
         <input placeholder="Name" data-ng-model="vm.component.name" />
     </div>
 
-    <button data-ng-click="vm.component.save()">
-        Save
-    </button>
+    <button data-ng-click="vm.component.save()" data-ng-disabled="vm.component.name == null || vm.component.name.length===0">Save</button>
 </div>

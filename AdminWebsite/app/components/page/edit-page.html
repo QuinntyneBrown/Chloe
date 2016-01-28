@@ -8,7 +8,15 @@
         <input placeholder="Name" data-ng-model="vm.page.name" />
     </div>
 
-    <button data-ng-click="vm.page.save()">
-        Save
-    </button>
+    <div>
+        <h2>Components</h2>
+        <div data-ng-repeat='item in vm.page.components'>
+            <label>
+                <input type="checkbox" data-ng-model='item.checked' />
+                {{ item.name }}
+            </label>
+        </div>
+    </div>
+
+    <button data-ng-click="vm.page.save()" data-ng-disabled="vm.page.name == null || vm.page.name.length===0">Save</button>
 </div>

@@ -21,6 +21,17 @@
         this.brandService.getProvidersByBrandId(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.BRAND_ACTIONS.PROVIDERS_BY_BRAND,
+                options: { data: { id: options.id, items: results }, id: newGuid }
+            });
+        });
+        return newGuid;
+    }
+
+    getPagesByBrandId = (options) => {
+        var newGuid = this.guid();
+        this.brandService.getPagesByBrandId(options).then((results) => {
+            this.dispatcher.emit({
+                actionType: this.BRAND_ACTIONS.PAGES_BY_BRAND,
                 options: { data: results, id: newGuid }
             });
         });
@@ -34,17 +45,15 @@
                 actionType: this.BRAND_ACTIONS.ADDED,
                 options: { data: results, id: newGuid }
             });
-
-            var providers = [];
-
-            for (var i = 0; i < options.data.providers.length; i++) {
-                if (options.data.providers[i].checked) {
-                    providers.push(options.data.providers[i]);
-                }
-            }
+            
             this.dispatcher.emit({
                 actionType: this.BRAND_ACTIONS.PROVIDERS_BY_BRAND,
-                options: { data: providers, id: newGuid }
+                options: { data: { id: options.data.id, items: options.data.providers.filter((p) => { return p.checked; }) }, id: newGuid }
+            });
+
+            this.dispatcher.emit({
+                actionType: this.BRAND_ACTIONS.PAGES_BY_BRAND,
+                options: { data: options.data.pages.filter((p) => { return p.checked; }), id: newGuid }
             });
         });
         return newGuid;

@@ -1,5 +1,5 @@
 ﻿class BrandStore {
-    constructor(private dispatcher, private BRAND_ACTIONS) { }
+    constructor(private dispatcher, private BRAND_ACTIONS, private pluck) { }
 
     public registerListeners = () => {
 
@@ -13,8 +13,22 @@
 
         this.dispatcher.addListener({
             actionType: this.BRAND_ACTIONS.PROVIDERS_BY_BRAND,
+            callback: (options) => {                
+                var providersByBrand = this.pluck({ items: this.providersByBrand, value: options.data.id });
+                if (providersByBrand) {
+                    providersByBrand.items = options.data.items;
+                } else {
+                    this.providersByBrand.push(options.data)
+                }
+
+                this.storeInstance.emitChange({ id: options.id });
+            }
+        });
+
+        this.dispatcher.addListener({
+            actionType: this.BRAND_ACTIONS.PAGES_BY_BRAND,
             callback: (options) => {
-                this.providersByBrand = options.data;
+                this.pagesByBrand = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
@@ -44,8 +58,9 @@
 
     items: any[];
     providersByBrand: any[] = [];
+    pagesByBrand: any[] = [];
     storeInstance: any;
     
 }
 
-ngX.Store({ store: BrandStore, providers: ["dispatcher","BRAND_ACTIONS"] });
+ngX.Store({ store: BrandStore, providers: ["dispatcher","BRAND_ACTIONS","pluck"] });

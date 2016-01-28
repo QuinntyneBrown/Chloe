@@ -13,6 +13,7 @@
 
     id: number;
     name: string;
+    logo: string;
 
     save = () => {
         return this.bundleActions.add({
@@ -24,6 +25,8 @@
     }
 
     remove = () => { return this.bundleActions.remove({ id: this.id }); }
+
+    create = () => { this.$location.path("/bundle/list"); }
 
     edit = () => { this.$location.path("/bundle/edit/" + this.id); }
 }

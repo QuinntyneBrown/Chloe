@@ -39,7 +39,7 @@
     storeOnChange = () => { this.onInit(); }
 
     static canActivate() {
-        return ["$q", "$route", "bundleActions", "providerActions", "invokeAsync", ($q, $route, bundleActions, providerActions, invokeAsync) => {
+        return ["$q", "$route", "PROVIDER_ACTIONS", "bundleActions", "dispatcher", "providerActions", "invokeAsync", ($q, $route, PROVIDER_ACTIONS, bundleActions, dispatcher, providerActions, invokeAsync) => {
             var promises = [];
             promises.push(invokeAsync(providerActions.all));
             promises.push(invokeAsync(bundleActions.all));            
@@ -50,7 +50,17 @@
                     params: { id: Number($route.current.params.id) }
                 }));
             }
-
+            else
+            {
+                dispatcher.emit({
+                    actionType: PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
+                    options: { data: [], id: null }
+                });
+                dispatcher.emit({
+                    actionType: PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
+                    options: { data: [], id: null }
+                });
+            }
             return $q.all(promises);
         }];
     }

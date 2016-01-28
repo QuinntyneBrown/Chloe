@@ -22,10 +22,18 @@ angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", 
         componentName: "bundleListComponent"
     });
 
+    $routeProvider.when("/component/edit/:id", {
+        componentName: "componentListComponent"
+    });
+
     $routeProvider.when("/component/list", {
         componentName: "componentListComponent"
     });
     
+    $routeProvider.when("/page/edit/:id", {
+        componentName: "pageListComponent"
+    });
+
     $routeProvider.when("/page/list", {
         componentName: "pageListComponent"
     });

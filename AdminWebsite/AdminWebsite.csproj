@@ -147,6 +147,7 @@
     <TypeScriptCompile Include="app\domain\component.ts" />
     <TypeScriptCompile Include="app\domain\page.ts" />
     <TypeScriptCompile Include="app\domain\provider.ts" />
+    <TypeScriptCompile Include="app\metal\pluck.ts" />
     <TypeScriptCompile Include="app\metal\safeDigest.ts" />
     <TypeScriptCompile Include="app\services\brand-service.ts" />
     <TypeScriptCompile Include="app\services\bundle-service.ts" />

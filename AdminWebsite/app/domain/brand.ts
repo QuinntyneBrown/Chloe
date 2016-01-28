@@ -14,24 +14,24 @@
     id: number;     
     name: string;
     providers: any[] = [];
+    pages: any[] = [];
 
     save = () => {
         return this.brandActions.add({
             data: {
                 id: this.id,
                 name: this.name,
+                pages: this.pages,
                 providers: this.providers
             }
         });
     }
 
-    edit = () => {
-        this.$location.path("/brand/edit/" + this.id);
-    }
+    create = () => { this.$location.path("/brand/list"); }
 
-    remove = () => {
-        return this.brandActions.remove({ id: this.id });
-    }
+    edit = () => { this.$location.path("/brand/edit/" + this.id); }
+
+    remove = () => { return this.brandActions.remove({ id: this.id }); }
 }
 
 angular.module("app").service("brand",

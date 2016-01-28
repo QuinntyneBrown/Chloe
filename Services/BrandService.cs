@@ -22,9 +22,13 @@ namespace Services
 
             if (dto.Id != 0)
             {
-                brand = uow.Brands.GetAll().Where(x => x.Id == dto.Id).Include(x => x.Providers).Single();
+                brand = uow.Brands.GetAll().Where(x => x.Id == dto.Id)
+                    .Include(x => x.Providers)
+                    .Include(x=>x.Pages)                    
+                    .Single();
                 brand.Name = dto.Name;
                 brand.Providers = new List<Provider>();
+                brand.Pages = new List<Page>();
             } else
             {
                 brand = new Brand() { Name = dto.Name };
@@ -36,6 +40,14 @@ namespace Services
                 if(provider.Checked == true)
                 {
                     brand.Providers.Add(uow.Providers.GetById(provider.Id));
+                }
+            }
+
+            foreach (var page in dto.Pages)
+            {
+                if (page.Checked == true)
+                {
+                    brand.Pages.Add(uow.Pages.GetById(page.Id));
                 }
             }
             this.uow.SaveChanges();
@@ -90,6 +102,20 @@ namespace Services
                 .Providers
                 .Where(x=>x.IsDeleted ==false)
                 .Select(x => new ProviderDto(x)).ToList();
+        }
+
+        public ICollection<PageDto> GetPagesByBrandId(int id)
+        {
+            var result = this.uow.Brands
+                .GetAll()
+                .Where(x => x.Id == id)
+                .Include(x => x.Pages)
+                .Single()
+                .Pages
+                .Where(x => x.IsDeleted == false)
+                .Select(x => new PageDto(x)).ToList();
+
+            return result;
         }
 
         protected readonly IModernCmsUow uow;

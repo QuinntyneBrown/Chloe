@@ -3,7 +3,8 @@ angular.module("app").value("BRAND_ACTIONS", {
     ALL: 0,
     ADDED: 1,
     REMOVED: 2,
-    PROVIDERS_BY_BRAND:60
+    PROVIDERS_BY_BRAND: 60,
+    PAGES_BY_BRAND: 61
 });
 
 angular.module("app").value("BUNDLE_ACTIONS", {
@@ -28,6 +29,7 @@ angular.module("app").value("PROVIDER_ACTIONS", {
     ALL: 12,
     ADDED: 13,
     REMOVED: 14,
+    BUNDLES_BY_PROVIDER: 100
 });
 
 angular.module("app").value("BRAND_PROVIDER_ACTIONS", {

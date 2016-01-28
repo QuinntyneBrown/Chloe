@@ -8,6 +8,14 @@
         });
         return deferred.promise;
     };
+    
+    getPagesByBrandId(options) {
+        var deferred = this.$q.defer();
+        this.fetch.fromService({ method: "GET", url: this.baseUri + "/getPagesByBrandId", params: { id: options.id } }).then((results) => {
+            deferred.resolve(results.data);
+        });
+        return deferred.promise;
+    };
 
     getProvidersByBrandId(options) {
         var deferred = this.$q.defer();

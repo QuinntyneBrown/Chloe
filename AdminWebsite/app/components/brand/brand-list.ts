@@ -1,62 +1,67 @@
 ﻿class BrandListComponent {
-    constructor(private $routeParams, private brand, private brandStore, private provider, private providerStore) { }
+    constructor(private $routeParams, private brand, private brandStore, private page, private pageStore, private pluck, private provider, private providerStore) { }
     
-    onInit = () => {
+    onInit = () => {        
         if (!this.$routeParams.id) {
             this.modelInstance = this.brand.createInstance();
         } else {
-            for (var i = 0; i < this.brandStore.items.length; i++) {
-                if (Number(this.$routeParams.id) === this.brandStore.items[i].id) {
-                    this.modelInstance = this.brand.createInstance({ data: this.brandStore.items[i] });
-                }
-            }
+            this.modelInstance = this.brand.createInstance({
+                data: this.pluck({ items: this.brandStore.items, value: Number(this.$routeParams.id) })
+            });           
         }
             
         this.items = [];
         this.modelInstance.providers = [];
-        
-        for (var i = 0; i < this.brandStore.items.length; i++) {
-            this.items.push(this.brand.createInstance({
-                data: this.brandStore.items[i]
-            }));
-        }
+        this.modelInstance.pages = [];
 
-        for (var i = 0; i < this.providerStore.items.length; i++) {
-            var provider = this.provider.createInstance({
-                data: this.providerStore.items[i]
-            });
-            for (var x = 0; x < this.brandStore.providersByBrand.length; x++) {
-                if (provider.id == this.brandStore.providersByBrand[x].id) {
-                    provider.checked = true;
-                }
-            }
-            this.modelInstance.providers.push(provider);
-        }  
+        this.brandStore.items.forEach((item) => {
+            this.items.push(this.brand.createInstance({ data: item }));
+        });
         
+        this.providerStore.items.forEach((p) => {
+            var provider = this.provider.createInstance({ data: p });
+            if (this.pluck({ items: this.providersByBrand, value: provider.id }))
+                provider.checked = true;
+            this.modelInstance.providers.push(provider);
+        });  
+        
+        this.pageStore.items.forEach((p) => {
+            var page = this.page.createInstance({ data: p });
+            if (this.pluck({ items: this.brandStore.pagesByBrand, value: page.id }))
+                page.checked = true;
+            this.modelInstance.pages.push(page);
+        });
+    }
+
+    get providersByBrand() {
+        return this.$routeParams.id ? this.pluck({ items: this.brandStore.providersByBrand, value: this.$routeParams.id }).items : [];
     }
 
     items: any[] = [];
     providers: any[] = [];
-
     modelInstance: any;
     
-    storeOnChange = () => {
-        this.onInit();      
-    }
+    storeOnChange = () => { this.onInit(); }
     
     static canActivate() {
-        return ["$q", "$route", "BRAND_ACTIONS", "brandActions", "dispatcher", "invokeAsync", "providerActions", ($q, $route, BRAND_ACTIONS, brandActions, dispatcher, invokeAsync, providerActions) => {               
+        return ["$q", "$route", "BRAND_ACTIONS", "brandActions", "dispatcher", "invokeAsync", "pageActions", "providerActions", ($q, $route, BRAND_ACTIONS, brandActions, dispatcher, invokeAsync, pageActions, providerActions) => {               
             var promises = [];
             promises.push(invokeAsync(brandActions.all));
             promises.push(invokeAsync(providerActions.all));
+            promises.push(invokeAsync(pageActions.all));
+
             if ($route.current.params.id) {
                 promises.push(invokeAsync({
                     action: brandActions.getProvidersByBrandId,
                     params: { id: Number($route.current.params.id) }
                 }));
+                promises.push(invokeAsync({
+                    action: brandActions.getPagesByBrandId,
+                    params: { id: Number($route.current.params.id) }
+                }));
             } else {
                 dispatcher.emit({
-                    actionType: BRAND_ACTIONS.PROVIDERS_BY_BRAND,
+                    actionType: BRAND_ACTIONS.PAGES_BY_BRAND,
                     options: { data: [], id: null }
                 });
             }
@@ -69,5 +74,5 @@ ngX.Component({
     component: BrandListComponent,
     routes: ["/brand/list", "/brand/edit/:id"],
     templateUrl: "app/components/brand/brand-list.html",
-    providers: ["$routeParams","brand", "brandStore", "provider","providerStore"]
+    providers: ["$routeParams", "brand", "brandStore", "page", "pageStore", "pluck", "provider","providerStore"]
 });

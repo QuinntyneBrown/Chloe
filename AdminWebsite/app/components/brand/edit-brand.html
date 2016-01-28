@@ -8,14 +8,28 @@
         <input placeholder="Name" data-ng-model="vm.brand.name" />
     </div>
 
-    <div data-ng-repeat='item in vm.brand.providers'>
-        <label>
-            <input type="checkbox" data-ng-model='item.checked' />
-            {{ item.name }}
-        </label>
+    <div>
+        <h2>Providers</h2>
+        <div data-ng-repeat='item in vm.brand.providers'>
+            <label>
+                <input type="checkbox" data-ng-model='item.checked' />
+                {{ item.name }}
+            </label>
+        </div>
     </div>
 
-    <button data-ng-click="vm.brand.save()">
-        Save
-    </button>
+
+    <div>
+        <h2>Pages</h2>
+        <div data-ng-repeat='item in vm.brand.pages'>
+            <label>
+                <input type="checkbox" data-ng-model='item.checked' />
+                {{ item.name }}
+            </label>
+        </div>
+    </div>
+
+    <button data-ng-click="vm.brand.create()" data-ng-disabled="vm.brand.id == 0">Create New</button>
+    <button data-ng-click="vm.brand.save()" data-ng-disabled="vm.brand.name == null || vm.brand.name.length ===0">Save</button>
+
 </div>

@@ -14,6 +14,11 @@ namespace Api.Controllers
         public IHttpActionResult GetProvidersByBrandId(int id)
             => Ok(this.service.GetProvidersByBrandId(id));
 
+        [Route("GetPagesByBrandId")]
+        [HttpGet]
+        public IHttpActionResult GetPagesByBrandId(int id)
+            => Ok(this.service.GetPagesByBrandId(id));
+
 
         [Route("get")]
         [HttpGet]

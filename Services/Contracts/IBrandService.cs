@@ -10,5 +10,6 @@ namespace Services.Contracts
         ICollection<BrandDto> Get();
         ICollection<BrandDto> GetAllIncludingChildren();
         ICollection<ProviderDto> GetProvidersByBrandId(int id);
+        ICollection<PageDto> GetPagesByBrandId(int id);
     }
 }
