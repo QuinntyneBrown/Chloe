@@ -23,7 +23,14 @@ namespace Api.Controllers
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id)
-        => Ok(service.Remove(id));
+            => Ok(service.Remove(id));
+
+        //getBundlesByProviderId
+
+        [Route("getBundlesByProviderId")]
+        [HttpGet]
+        public IHttpActionResult GetBundlesByProviderId(int id)
+            => Ok(this.service.GetBundlesByProviderId(id));
 
         protected readonly IProviderService service;
     }

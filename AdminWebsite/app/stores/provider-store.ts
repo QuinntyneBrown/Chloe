@@ -2,7 +2,7 @@
     constructor(private dispatcher, private PROVIDER_ACTIONS) { }
 
     items: any[];
-
+    bundlesByProvider: any;
     storeInstance: any;
 
     public registerListeners = () => {
@@ -10,6 +10,14 @@
             actionType: this.PROVIDER_ACTIONS.ALL,
             callback: (options) => {
                 this.storeInstance.items = options.data;
+                this.storeInstance.emitChange({ id: options.id });
+            }
+        });
+        
+        this.dispatcher.addListener({
+            actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
+            callback: (options) => {
+                this.bundlesByProvider = options.data;
                 this.storeInstance.emitChange({ id: options.id });
             }
         });

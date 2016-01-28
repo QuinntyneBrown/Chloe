@@ -10,13 +10,14 @@
         }
         return instance;
     }
-    id: number;
 
+    id: number;
     name: string;
 
     save = () => {
         return this.bundleActions.add({
             data: {
+                id: this.id,
                 name: this.name
             }
         });

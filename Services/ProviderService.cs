@@ -4,6 +4,7 @@ using Services.Contracts;
 using System.Linq;
 using System.Collections.Generic;
 using Models;
+using System.Data.Entity;
 
 namespace Services
 {
@@ -37,6 +38,18 @@ namespace Services
             entity.IsDeleted = true;
             uow.SaveChanges();
             return true;
+        }
+
+        public ICollection<BundleDto> GetBundlesByProviderId(int id)
+        {
+            return this.uow.Providers
+                .GetAll()
+                .Where(x => x.Id == id)
+                .Include(x => x.Bundles)
+                .Single()
+                .Bundles
+                .Where(x => x.IsDeleted == false)
+                .Select(x => new BundleDto(x)).ToList();
         }
 
         protected readonly IModernCmsUow uow;

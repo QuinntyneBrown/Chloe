@@ -26,7 +26,17 @@
         });
         return newGuid;
     }
-
+    
+    getBundlesByProviderId = (options) => {
+        var newGuid = this.guid();
+        this.providerService.getBundlesByProviderId(options).then((results) => {
+            this.dispatcher.emit({
+                actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
+                options: { data: results, id: newGuid }
+            });
+        });
+        return newGuid;
+    }
     remove = (options) => {
         var newGuid = this.guid();
         this.providerService.remove(options).then((results) => {

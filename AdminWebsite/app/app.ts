@@ -13,8 +13,12 @@ angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", 
     $routeProvider.when("/brand/edit/:id", {
         componentName: "brandListComponent"
     });
-        
+     
     $routeProvider.when("/bundle/list", {
+        componentName: "bundleListComponent"
+    });
+
+    $routeProvider.when("/bundle/edit/:id", {
         componentName: "bundleListComponent"
     });
 
@@ -24,6 +28,10 @@ angular.module("app", ["ngX"]).config(["$routeProvider", "apiEndpointProvider", 
     
     $routeProvider.when("/page/list", {
         componentName: "pageListComponent"
+    });
+
+    $routeProvider.when("/provider/edit/:id", {
+        componentName: "providerListComponent"
     });
 
     $routeProvider.when("/provider/list", {

@@ -17,6 +17,14 @@
         return deferred.promise;
     };
 
+    getBundlesByProviderId(options) {
+        var deferred = this.$q.defer();
+        this.fetch.fromService({ method: "GET", url: this.baseUri + "/getBundlesByProviderId", params: { id: options.id } }).then((results) => {
+            deferred.resolve(results.data);
+        });
+        return deferred.promise;
+    };
+
     remove(options) {
         var deferred = this.$q.defer();
         this.fetch.fromService({ method: "DELETE", url: this.baseUri + "/remove", params: { id: options.id } }).then((results) => {

@@ -8,5 +8,6 @@ namespace Services.Contracts
         ProviderDto Add(ProviderDto dto);
         bool Remove(int id);
         ICollection<ProviderDto> Get();
+        ICollection<BundleDto> GetBundlesByProviderId(int id);
     }
 }

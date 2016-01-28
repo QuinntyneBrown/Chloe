@@ -1,7 +1,6 @@
 ﻿class EditProviderComponent {
-    constructor() {
-        
-    }
+    constructor() { }
+    
 }
 
 ngX.Component({

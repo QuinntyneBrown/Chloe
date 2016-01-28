@@ -1,8 +1,8 @@
 ﻿<div class="edit-provider">
 
-    <h1 data-ng-if="vm.provider.id">Edit Provider</h1>
+    <h1 data-ng-if="vm.provider.id">Edit Provider <span>: {{ vm.provider.name }}</span></h1>
 
-    <h1 data-ng-if="!vm.provider.id">Create Provider</h1>
+    <h1 data-ng-if="!vm.provider.id">Create Provider <span data-ng-if="vm.provider.name">: {{ vm.provider.name }}</span></h1>
 
     <div>
         <input placeholder="Name" data-ng-model="vm.provider.name" />
