@@ -2,7 +2,7 @@
     constructor(private dispatcher, private PROVIDER_ACTIONS) { }
 
     items: any[];
-    bundlesByProvider: any;
+    bundlesByProvider: any = [];
     storeInstance: any;
 
     public registerListeners = () => {

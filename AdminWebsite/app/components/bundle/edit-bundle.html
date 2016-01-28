@@ -1,14 +1,13 @@
 ﻿<div class="edit-bundle">
 
-    <h1 data-ng-if="vm.bundle.id">Edit Bundle</h1>
+    <h1 data-ng-if="vm.bundle.id">Edit Bundle <span>: {{ vm.bundle.name }}</span></h1>
 
-    <h1 data-ng-if="!vm.bundle.id">Create Bundle</h1>
+    <h1 data-ng-if="!vm.bundle.id">Create Bundle <span  data-ng-if="vm.bundle.name">: {{ vm.bundle.name }}</span></h1>
 
     <div>
         <input placeholder="Name" data-ng-model="vm.bundle.name" />
     </div>
 
-    <button data-ng-click="vm.bundle.save()">
-        Save
-    </button>
+    <button data-ng-click="vm.bundle.save()">Save</button>
+    
 </div>

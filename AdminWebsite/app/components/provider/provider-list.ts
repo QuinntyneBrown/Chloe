@@ -2,7 +2,7 @@
     constructor(private $routeParams, private bundle, private bundleStore, private provider, private providerStore: any) { }
 
     onInit = () => {
-
+        this.items = [];
         for (var i = 0; i < this.providerStore.items.length; i++) {
             this.items.push(this.provider.createInstance({
                 data: this.providerStore.items[i]
@@ -23,11 +23,12 @@
             var bundle = this.bundle.createInstance({
                 data: this.bundleStore.items[i]
             });
-            for (var x = 0; x < this.bundleStore.providersByBrand.length; x++) {
-                if (bundle.id == this.bundleStore.providersByBrand[x].id) {
+            for (var x = 0; x < this.providerStore.bundlesByProvider.length; x++) {
+                if (bundle.id == this.providerStore.bundlesByProvider[x].id) {
                     bundle.checked = true;
                 }
             }
+
             this.modelInstance.bundles.push(bundle);
         }  
     }

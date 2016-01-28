@@ -24,6 +24,19 @@
                 options: { data: results, id: newGuid }
             });
         });
+
+        var bundles = [];
+
+        for (var i = 0; i < options.data.bundles.length; i++) {
+            if (options.data.bundles[i].checked) {
+                bundles.push(options.data.bundles[i]);
+            }
+        }
+        this.dispatcher.emit({
+            actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
+            options: { data: bundles, id: newGuid }
+        });
+
         return newGuid;
     }
     

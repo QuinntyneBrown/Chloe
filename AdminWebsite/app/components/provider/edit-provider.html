@@ -8,6 +8,13 @@
         <input placeholder="Name" data-ng-model="vm.provider.name" />
     </div>
 
+    <div data-ng-repeat='item in vm.provider.bundles'>
+        <label>
+            <input type="checkbox" data-ng-model='item.checked' />
+            {{ item.name }}
+        </label>
+    </div>
+
     <button data-ng-click="vm.provider.save()">
         Save
     </button>

@@ -17,8 +17,27 @@ namespace Services
 
         public ProviderDto Add(ProviderDto dto)
         {
-            var entity = new Provider() { Name = dto.Name };
-            this.uow.Providers.Add(entity);
+            var entity = new Provider();
+
+            if (dto.Id == 0)
+            {
+                entity = new Provider();
+                this.uow.Providers.Add(entity);
+            } else
+            {
+                entity = uow.Providers.GetAll().Where(x => x.Id == dto.Id).Include(x => x.Bundles).Single();
+                entity.Bundles = new List<Bundle>();
+            }
+
+            entity.Name = dto.Name;
+            foreach (var bundle in dto.Bundles)
+            {
+                if (bundle.Checked == true)
+                {
+                    entity.Bundles.Add(uow.Bundles.GetById(bundle.Id));
+                }
+            }
+
             this.uow.SaveChanges();
             return new ProviderDto(entity);
         }

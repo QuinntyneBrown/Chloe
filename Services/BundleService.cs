@@ -18,8 +18,13 @@ namespace Services
 
         public BundleDto Add(BundleDto dto)
         {
-            var entity = new Bundle() { Name = dto.Name };
-            this.uow.Bundles.Add(entity);
+            var entity = new Bundle();
+            if(dto.Id ==0) {
+                this.uow.Bundles.Add(entity);
+            } else {
+                entity = uow.Bundles.GetById(dto.Id);
+            }
+            entity.Name = dto.Name;            
             this.uow.SaveChanges();
             return new BundleDto(entity);
         }
