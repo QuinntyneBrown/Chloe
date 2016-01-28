@@ -2,13 +2,9 @@
     constructor(private $routeParams, private brand, private brandStore, private page, private pageStore, private pluck, private provider, private providerStore) { }
     
     onInit = () => {        
-        if (!this.$routeParams.id) {
-            this.modelInstance = this.brand.createInstance();
-        } else {
-            this.modelInstance = this.brand.createInstance({
-                data: this.pluck({ items: this.brandStore.items, value: Number(this.$routeParams.id) })
-            });           
-        }
+        this.modelInstance = this.brand.createInstance({
+            data: this.pluck({ items: this.brandStore.items, value: Number(this.$routeParams.id || 0) })
+        });
             
         this.items = [];
         this.modelInstance.providers = [];
@@ -18,17 +14,15 @@
             this.items.push(this.brand.createInstance({ data: item }));
         });
         
-        this.providerStore.items.forEach((p) => {
-            var provider = this.provider.createInstance({ data: p });
-            if (this.pluck({ items: this.providersByBrand, value: provider.id }))
-                provider.checked = true;
+        this.providerStore.items.forEach((item) => {
+            var provider = this.provider.createInstance({ data: item });
+            provider.checked = this.pluck({ items: this.providersByBrand, value: provider.id }) != null;
             this.modelInstance.providers.push(provider);
         });  
         
-        this.pageStore.items.forEach((p) => {
-            var page = this.page.createInstance({ data: p });
-            if (this.pluck({ items: this.brandStore.pagesByBrand, value: page.id }))
-                page.checked = true;
+        this.pageStore.items.forEach((item) => {
+            var page = this.page.createInstance({ data: item });
+            page.checked = this.pluck({ items: this.brandStore.pagesByBrand, value: page.id }) != null;
             this.modelInstance.pages.push(page);
         });
     }
