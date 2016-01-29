@@ -12,7 +12,8 @@
     "angular-route": "^1.4.9",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
-    "ng-x": "^0.4.7"
+    "ng-x": "^0.4.7",
+    "ng-x-components": "0.0.12"
   },
   "devDependencies": {},
   "description": ""

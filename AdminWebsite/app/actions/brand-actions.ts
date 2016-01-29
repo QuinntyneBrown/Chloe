@@ -2,7 +2,8 @@
     constructor(private brandService,
         private dispatcher,
         private guid,
-        private BRAND_ACTIONS
+        private BRAND_ACTIONS,
+        private modal
         ) { }
 
     all = () => {
@@ -69,6 +70,10 @@
         });
         return newGuid;
     }
+
+    create = () => { this.modal.openAsync(); }
+
+    edit = () => { this.modal.openAsync(); }
 }
 
-angular.module("app").service("brandActions", ["brandService", "dispatcher", "guid","BRAND_ACTIONS",BrandActions]);
+angular.module("app").service("brandActions", ["brandService", "dispatcher", "guid","BRAND_ACTIONS", "modal", BrandActions]);

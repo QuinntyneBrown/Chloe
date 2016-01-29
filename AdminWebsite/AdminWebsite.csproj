@@ -113,6 +113,7 @@
     <Content Include="index.html" />
     <Content Include="lib\angular-route.js" />
     <Content Include="lib\angular.js" />
+    <Content Include="lib\ngX.components.js" />
     <Content Include="lib\ngX.js" />
     <Content Include="Web.config" />
   </ItemGroup>
