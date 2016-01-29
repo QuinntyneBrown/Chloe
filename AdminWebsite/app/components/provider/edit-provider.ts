@@ -9,6 +9,14 @@ ngX.Component({
     templateUrl: "app/components/provider/edit-provider.html",
     inputs: ["provider"],
     styles: [
-        " .edit-provider { } "
+        `
+        .edit-provider {
+            margin-bottom:30px;
+        }
+
+        .edit-provider-form {
+            margin-bottom:15px;
+        }
+        `
     ]
 });

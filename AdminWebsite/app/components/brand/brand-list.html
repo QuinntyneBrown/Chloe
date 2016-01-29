@@ -1,11 +1,22 @@
-﻿<div class="brand-list">   
-    
-    <edit-brand brand="vm.modelInstance" providers="vm.providers"></edit-brand>    
+﻿<div class="brand-list">
 
-    <div class="brand-list-item" data-ng-repeat="item in vm.items">
-        <h1>Name: {{ item.name }}</h1>
-        <button data-ng-click="item.edit()">edit</button>
-        <button data-ng-click="item.remove()" >delete</button>
+    <edit-brand brand="vm.modelInstance" providers="vm.providers"></edit-brand>
+
+    <h1>All Brands</h1>
+
+    <div>
+        <div>
+            <div style="position:relative; float:left; width:200px;"><h3>Name</h3></div>
+            <div style="position:relative; float:left;">&nbsp;</div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="brand-list-item" data-ng-repeat="item in vm.items">
+            <div style="position:relative; float:left; width:200px;">{{ item.name }}</div>
+            <div style="position:relative; float:left;">
+                <a style="cursor:pointer;" data-ng-click="item.edit()">edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="cursor:pointer;" data-ng-click="item.remove()">delete</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
     </div>
 
 </div>

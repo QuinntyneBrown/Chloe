@@ -4,18 +4,25 @@
 
     <h1 data-ng-if="!vm.provider.id">Create Provider <span data-ng-if="vm.provider.name">: {{ vm.provider.name }}</span></h1>
 
-    <div>
-        <input placeholder="Name" data-ng-model="vm.provider.name" />
+    <div class="edit-provider-form">
+        <input placeholder="Name" type="text" data-ng-model="vm.provider.name" />
     </div>
 
-    <div data-ng-repeat='item in vm.provider.bundles'>
-        <label>
-            <input type="checkbox" data-ng-model='item.checked' />
-            {{ item.name }}
-        </label>
+    <div class="edit-bundle-associations">
+        <div class="edit-bundle-association">
+            <h2>Bundles</h2>
+            <div data-ng-repeat='item in vm.provider.bundles'>
+                <label>
+                    <input type="checkbox" data-ng-model='item.checked' />
+                    {{ item.name }}
+                </label>
+            </div>
+        </div>
+        <span style="font-size:.75em; padding-bottom:15px; display:block;">( SELECT TO CREATE AN ASSOCIATION WITH PROVIDER )</span>
     </div>
 
-    <button data-ng-click="vm.provider.create()" data-ng-disabled="vm.provider.id && vm.provider.id == 0">Create New</button>
+
+    <button data-ng-click="vm.provider.create()" data-ng-disabled="vm.provider.id && vm.provider.id == 0">Create</button>
     <button data-ng-click="vm.provider.save()" data-ng-disabled="vm.provider.name == null || vm.provider.name.length===0">Save</button>
 
 </div>

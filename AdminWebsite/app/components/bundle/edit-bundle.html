@@ -4,11 +4,11 @@
 
     <h1 data-ng-if="!vm.bundle.id">Create Bundle <span  data-ng-if="vm.bundle.name">: {{ vm.bundle.name }}</span></h1>
 
-    <div>
-        <input placeholder="Name" data-ng-model="vm.bundle.name" />
+    <div class="edit-bundle-form">
+        <input placeholder="Name" type="text" data-ng-model="vm.bundle.name" />
     </div>
 
-    <button data-ng-click="vm.bundle.create()" data-ng-disabled="vm.bundle.id == 0">Create New</button>
+    <button data-ng-click="vm.bundle.create()" data-ng-disabled="vm.bundle.id == 0">Create</button>
     <button data-ng-click="vm.bundle.save()" data-ng-disabled="vm.bundle.name == null || vm.bundle.name.length===0">Save</button>
     
 </div>

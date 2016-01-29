@@ -1,7 +1,4 @@
 ﻿class EditBrandComponent {
-    constructor() {
-
-    }
 }
 
 ngX.Component({
@@ -11,22 +8,21 @@ ngX.Component({
     inputs: ["brand"],
     styles: [
         `
-.edit-brand-association {
-    position:relative;
-    float:left;
-    width: 200px
-}
+        .edit-brand-association {
+            position:relative;
+            float:left;
+            width: 200px
+        }
 
-.edit-brand {
-    margin-bottom:30px;
-}
+        .edit-brand {
+            margin-bottom:30px;
+        }
 
-.edit-brand-associations {
-    margin-top:15px;
-    margin-bottom:15px;
-}
-
-`
+        .edit-brand-associations {
+            margin-top:15px;
+            margin-bottom:15px;
+        }
+        `
     ]
 
 });

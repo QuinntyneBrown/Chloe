@@ -55,7 +55,7 @@ input {
 }
 
 input[type='text'] {
-    line-height:2.5em;
+    height:40px;
     padding-left:5px;
     width:200px;
 }

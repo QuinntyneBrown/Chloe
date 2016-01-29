@@ -3,11 +3,11 @@
 
     onInit = () => {
         this.items = [];
-        for (var i = 0; i < this.providerStore.items.length; i++) {
+        this.providerStore.items.forEach((item) => {
             this.items.push(this.provider.createInstance({
-                data: this.providerStore.items[i]
+                data: item
             }));
-        }
+        });
 
         if (!this.$routeParams.id) {
             this.modelInstance = this.provider.createInstance();
@@ -20,7 +20,7 @@
         }
 
         for (var i = 0; i < this.bundleStore.items.length; i++) {
-            var bundle = this.bundle.createInstance({
+            let bundle = this.bundle.createInstance({
                 data: this.bundleStore.items[i]
             });
             for (var x = 0; x < this.providerStore.bundlesByProvider.length; x++) {

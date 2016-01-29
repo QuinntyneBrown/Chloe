@@ -72,7 +72,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\components\app-header.html" />
+    <Content Include="app\components\app-header.html">
+      <DependentUpon>app-header.ts</DependentUpon>
+    </Content>
     <Content Include="app\components\app.html">
       <DependentUpon>app.ts</DependentUpon>
     </Content>

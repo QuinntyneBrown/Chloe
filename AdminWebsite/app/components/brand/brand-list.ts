@@ -15,13 +15,13 @@
         });
         
         this.providerStore.items.forEach((item) => {
-            var provider = this.provider.createInstance({ data: item });
+            let provider = this.provider.createInstance({ data: item });
             provider.checked = this.pluck({ items: this.providersByBrand, value: provider.id }) != null;
             this.modelInstance.providers.push(provider);
         });  
         
         this.pageStore.items.forEach((item) => {
-            var page = this.page.createInstance({ data: item });
+            let page = this.page.createInstance({ data: item });
             page.checked = this.pluck({ items: this.brandStore.pagesByBrand, value: page.id }) != null;
             this.modelInstance.pages.push(page);
         });

@@ -18,11 +18,9 @@
         }
 
         this.items = [];
-        for (var i = 0; i < this.bundleStore.items.length; i++) {
-            this.items.push(this.bundle.createInstance({
-                data: this.bundleStore.items[i]
-            }));
-        } 
+        this.bundleStore.items.forEach((item) => {
+            this.items.push(this.bundle.createInstance({ data: item }));
+        }); 
     }
     static canActivate() {
         return ["bundleActions", "invokeAsync", (bundleActions, invokeAsync) => {

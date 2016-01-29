@@ -1,8 +1,8 @@
 ﻿<div class="app-header">
 
-    <a href="#/">Home</a>
-    <a href="#/brand/list">Brands</a>
-    <a href="#/provider/list">Providers</a>
-    <a href="#/bundle/list">Bundles</a>
+    <a href="#/" data-ng-class="{ 'selected': vm.getCurrentPath() == '/' }">Home</a>
+    <a href="#/brand/list" data-ng-class="{ 'selected': vm.getCurrentPath() == '/brand/list' || vm.getCurrentPath() == '/brand/edit/:id' }">Brands</a>
+    <a href="#/provider/list" data-ng-class="{ 'selected': vm.getCurrentPath() == '/provider/list' || vm.getCurrentPath() == '/provider/edit/:id' }">Providers</a>
+    <a href="#/bundle/list" data-ng-class="{ 'selected': vm.getCurrentPath() == '/bundle/list' || vm.getCurrentPath() == '/bundle/edit/:id' }">Bundles</a>
     
 </div>
