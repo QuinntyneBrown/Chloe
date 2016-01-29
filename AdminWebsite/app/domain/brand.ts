@@ -1,9 +1,9 @@
 ﻿class Brand {
 
-    constructor(private $injector, private $location, private $q, private brandActions, private invokeAsync) { }
+    constructor(private $injector, private $location, private $q, private brandActions, private invokeAsync, private providerStore) { }
 
     createInstance = (options) => {
-        var instance = new Brand(this.$injector, this.$location, this.$q, this.brandActions, this.invokeAsync);
+        var instance = new Brand(this.$injector, this.$location, this.$q, this.brandActions, this.invokeAsync, this.providerStore);
         if (options && options.data) {
             instance.id = options.data.id;
             instance.name = options.data.name;
@@ -35,4 +35,4 @@
 }
 
 angular.module("app").service("brand",
-    ["$injector", "$location", "$q", "brandActions", "invokeAsync", Brand]);
+    ["$injector", "$location", "$q", "brandActions", "invokeAsync", "providerStore",Brand]);

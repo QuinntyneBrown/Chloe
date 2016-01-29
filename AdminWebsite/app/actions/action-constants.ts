@@ -31,17 +31,6 @@ angular.module("app").value("PROVIDER_ACTIONS", {
     REMOVED: 15,
 });
 
-angular.module("app").value("BRAND_PROVIDER_ACTIONS", {
-    ALL: 16,
-    ADDED: 17,
-    REMOVED: 18,
-});
-
-angular.module("app").value("PROVIDER_BUNDLE_ACTIONS", {
-    ALL: 19,
-    ADDED: 20,
-    REMOVED: 21,
-});
 
 angular.module("app").value("APP_STATE_ACTIONS", {
     BRAND_SELECTED: 22,
