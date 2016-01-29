@@ -2,6 +2,7 @@
     constructor(private providerService,
         private dispatcher,
         private guid,
+        private modal,
         private PROVIDER_ACTIONS
     ) { }
 
@@ -25,18 +26,18 @@
             });
         });
 
-        var bundles = [];
+        //var bundles = [];
 
-        for (var i = 0; i < options.data.bundles.length; i++) {
-            if (options.data.bundles[i].checked) {
-                bundles.push(options.data.bundles[i]);
-            }
-        }
-        this.dispatcher.emit({
-            actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
-            options: { data: bundles, id: newGuid }
-        });
-
+        //for (var i = 0; i < options.data.bundles.length; i++) {
+        //    if (options.data.bundles[i].checked) {
+        //        bundles.push(options.data.bundles[i]);
+        //    }
+        //}
+        //this.dispatcher.emit({
+        //    actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
+        //    options: { data: bundles, id: newGuid }
+        //});
+        this.modal.closeAsync();
         return newGuid;
     }
     
@@ -45,7 +46,7 @@
         this.providerService.getBundlesByProviderId(options).then((results) => {
             this.dispatcher.emit({
                 actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
-                options: { data: results, id: newGuid }
+                options: { data: { id: options.id, items: results }, id: newGuid }                
             });
         });
         return newGuid;
@@ -60,6 +61,12 @@
         });
         return newGuid;
     }
+
+    create = (options) => this.modal.openAsync({ html: options.model.editModelHtml, model: options.model });
+
+    edit = (options) => this.modal.openAsync({ html: options.model.editModelHtml, model: options.model });
+
+    cancel = () => this.modal.closeAsync();
 }
 
-angular.module("app").service("providerActions", ["providerService", "dispatcher", "guid", "PROVIDER_ACTIONS", ProviderActions]);
+angular.module("app").service("providerActions", ["providerService", "dispatcher", "guid", "modal", "PROVIDER_ACTIONS", ProviderActions]);

@@ -2,7 +2,8 @@
     constructor(private bundleService,
         private dispatcher,
         private guid,
-        private BUNDLE_ACTIONS
+        private BUNDLE_ACTIONS,
+        private modal
     ) { }
 
     all = () => {
@@ -24,6 +25,7 @@
                 options: { data: results, id: newGuid }
             });
         });
+        this.modal.closeAsync();
         return newGuid;
     }
 
@@ -37,6 +39,12 @@
         });
         return newGuid;
     }
+
+    create = (options) => this.modal.openAsync({ html: options.model.editModelHtml, model: options.model });
+
+    edit = (options) => this.modal.openAsync({ html: options.model.editModelHtml, model: options.model });
+
+    cancel = () => this.modal.closeAsync();
 }
 
-angular.module("app").service("bundleActions", ["bundleService", "dispatcher", "guid", "BUNDLE_ACTIONS", BundleActions]);
+angular.module("app").service("bundleActions", ["bundleService", "dispatcher", "guid", "BUNDLE_ACTIONS", "modal", BundleActions]);

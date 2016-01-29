@@ -24,11 +24,15 @@
         });
     }
 
+    editModelHtml = "<edit-bundle bundle='model'></edit-bundle>";
+
+    cancel = () => { this.bundleActions.cancel(); }
+
+    create = () => { this.bundleActions.create({ model: this }); }
+
     remove = () => { return this.bundleActions.remove({ id: this.id }); }
 
-    create = () => { this.$location.path("/bundle/list"); }
-
-    edit = () => { this.$location.path("/bundle/edit/" + this.id); }
+    edit = () => this.bundleActions.edit({ model: this }); 
 }
 
 angular.module("app").service("bundle",

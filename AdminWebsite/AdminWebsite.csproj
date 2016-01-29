@@ -64,14 +64,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="app\components\app-header.html">
       <DependentUpon>app-header.ts</DependentUpon>
     </Content>
@@ -81,6 +73,7 @@
     <Content Include="app\components\brand\brand-list.html">
       <DependentUpon>brand-list.ts</DependentUpon>
     </Content>
+    <Content Include="app\components\brand\edit-brand-modal.html" />
     <Content Include="app\components\brand\edit-brand.html">
       <DependentUpon>edit-brand.ts</DependentUpon>
     </Content>
@@ -109,13 +102,14 @@
     <Content Include="app\components\provider\provider-list.html">
       <DependentUpon>provider-list.ts</DependentUpon>
     </Content>
+    <Content Include="dist\app.js" />
+    <Content Include="dist\templates.js" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="lib\angular-route.js" />
     <Content Include="lib\angular.js" />
     <Content Include="lib\ngX.components.js" />
     <Content Include="lib\ngX.js" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +140,7 @@
     <TypeScriptCompile Include="app\domain\component.ts" />
     <TypeScriptCompile Include="app\domain\page.ts" />
     <TypeScriptCompile Include="app\domain\provider.ts" />
+    <TypeScriptCompile Include="app\metal\modal.ts" />
     <TypeScriptCompile Include="app\metal\pluck.ts" />
     <TypeScriptCompile Include="app\metal\safeDigest.ts" />
     <TypeScriptCompile Include="app\services\brand-service.ts" />
@@ -167,9 +162,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dist\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

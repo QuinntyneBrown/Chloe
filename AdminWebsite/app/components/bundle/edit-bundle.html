@@ -8,7 +8,8 @@
         <input placeholder="Name" type="text" data-ng-model="vm.bundle.name" />
     </div>
 
-    <button data-ng-click="vm.bundle.create()" data-ng-disabled="vm.bundle.id == 0">Create</button>
     <button data-ng-click="vm.bundle.save()" data-ng-disabled="vm.bundle.name == null || vm.bundle.name.length===0">Save</button>
+
+    <button data-ng-click="vm.provider.cancel()">Cancel</button>
     
 </div>

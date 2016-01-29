@@ -18,15 +18,12 @@ namespace Api.Controllers
         [HttpPost]
         public IHttpActionResult Add(ProviderDto dto)
             => Ok(this.service.Add(dto));
-
-
+        
         [Route("remove")]
         [HttpDelete]
         public IHttpActionResult Remove(int id)
             => Ok(service.Remove(id));
-
-        //getBundlesByProviderId
-
+        
         [Route("getBundlesByProviderId")]
         [HttpGet]
         public IHttpActionResult GetBundlesByProviderId(int id)

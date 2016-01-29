@@ -1,5 +1,5 @@
 ﻿class ProviderStore {
-    constructor(private dispatcher, private PROVIDER_ACTIONS) { }
+    constructor(private dispatcher, private pluck, private PROVIDER_ACTIONS) { }
 
     items: any[];
     bundlesByProvider: any = [];
@@ -17,11 +17,17 @@
         this.dispatcher.addListener({
             actionType: this.PROVIDER_ACTIONS.BUNDLES_BY_PROVIDER,
             callback: (options) => {
-                this.bundlesByProvider = options.data;
+                var providersByBrand = this.pluck({ items: this.bundlesByProvider, value: options.data.id });
+                if (providersByBrand) {
+                    providersByBrand.items = options.data.items;
+                } else {
+                    this.bundlesByProvider.push(options.data)
+                }
+
                 this.storeInstance.emitChange({ id: options.id });
             }
         });
-
+        
         this.dispatcher.addListener({
             actionType: this.PROVIDER_ACTIONS.ADDED,
             callback: (options) => {
@@ -47,4 +53,4 @@
 
 }
 
-ngX.Store({ store: ProviderStore, providers: ["dispatcher", "PROVIDER_ACTIONS"] });
+ngX.Store({ store: ProviderStore, providers: ["dispatcher", "pluck", "PROVIDER_ACTIONS"] });

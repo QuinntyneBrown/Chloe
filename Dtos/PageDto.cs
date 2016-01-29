@@ -4,10 +4,7 @@ namespace Dtos
 {
     public class PageDto
     {
-        public PageDto()
-        {
-
-        }
+        public PageDto() { }
 
         public PageDto(Page page)
         {

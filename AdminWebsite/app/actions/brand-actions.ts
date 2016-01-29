@@ -56,6 +56,7 @@
                 actionType: this.BRAND_ACTIONS.PAGES_BY_BRAND,
                 options: { data: options.data.pages.filter((p) => { return p.checked; }), id: newGuid }
             });
+            this.modal.closeAsync();
         });
         return newGuid;
     }
@@ -71,9 +72,11 @@
         return newGuid;
     }
 
-    create = () => { this.modal.openAsync(); }
+    create = (options) => this.modal.openAsync({ html: options.model.editModelHtml, model: options.model });
+    
+    edit = (options) => this.modal.openAsync({ html: options.model.editModelHtml, model: options.model });
 
-    edit = () => { this.modal.openAsync(); }
+    cancel = () => this.modal.closeAsync();
 }
 
 angular.module("app").service("brandActions", ["brandService", "dispatcher", "guid","BRAND_ACTIONS", "modal", BrandActions]);

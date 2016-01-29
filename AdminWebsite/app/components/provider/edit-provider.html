@@ -22,7 +22,8 @@
     </div>
 
 
-    <button data-ng-click="vm.provider.create()" data-ng-disabled="vm.provider.id && vm.provider.id == 0">Create</button>
     <button data-ng-click="vm.provider.save()" data-ng-disabled="vm.provider.name == null || vm.provider.name.length===0">Save</button>
+
+    <button data-ng-click="vm.provider.cancel()">Cancel</button>
 
 </div>

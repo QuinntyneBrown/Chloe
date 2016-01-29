@@ -19,13 +19,8 @@ namespace Dtos
         }
 
         public int Id { get; set; }
-
         public string Name { get; set; }
-
         public ICollection<PageDto> Pages { get; set; }
-
-        public ICollection<ProviderDto> Providers { get; set; }
-        
-
+        public ICollection<ProviderDto> Providers { get; set; }        
     }
 }
