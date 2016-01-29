@@ -4,11 +4,9 @@
     onInit = () => {
         this.modelInstance = this.component.createInstance();
         this.items = [];
-        for (var i = 0; i < this.componentStore.items.length; i++) {
-            this.items.push(this.component.createInstance({
-                data: this.componentStore.items[i]
-            }));
-        }
+        this.componentStore.items.forEach((item) => {
+            this.items.push(this.component.createInstance({ data: item }));
+        });
     }
 
     items: any[];
